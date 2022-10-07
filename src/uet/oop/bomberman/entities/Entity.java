@@ -8,8 +8,12 @@ import javafx.scene.paint.Color;
 import uet.oop.bomberman.graphics.Sprite;
 
 public abstract class Entity {
+
+    public boolean show = true; // nếu bằng true thì render ra
+
     //Tọa độ X tính từ góc trái trên trong Canvas
     protected Sprite sprite;
+
     protected int x;
 
     //Tọa độ Y tính từ góc trái trên trong Canvas
@@ -19,12 +23,53 @@ public abstract class Entity {
 
     protected int speed = 4;
 
-    protected boolean moving = false;
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Image getImg() {
+        return img;
+    }
+
+    public void setImg(Image img) {
+        this.img = img;
+    }
+
+    //Từ toạ độ x trên canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
+    public int getSmallX() {
+        return (x+(Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
+    }
+
+    //Từ toạ độ y canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
+    public int getSmallY(){
+        return (y+(Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
+    }
+
+    public int getEXSmallX() {
+        return (x)/Sprite.SCALED_SIZE;
+    }
+
+    //Từ toạ độ y canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
+    public int getEXSmallY(){
+        return (y)/Sprite.SCALED_SIZE;
+    }
 
     //Khởi tạo đối tượng, chuyển từ tọa độ đơn vị sang tọa độ trong canvas
-    public Entity( int xUnit, int yUnit, Image img) {
-        this.x = xUnit * Sprite.SCALED_SIZE;
-        this.y = yUnit * Sprite.SCALED_SIZE;
+    public Entity( int x, int y, Image img) {
+        this.x = x * Sprite.SCALED_SIZE;
+        this.y = y * Sprite.SCALED_SIZE;
         this.img = img;
     }
 
