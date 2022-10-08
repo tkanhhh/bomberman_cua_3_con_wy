@@ -5,16 +5,14 @@ import uet.oop.bomberman.entities.ActiveEntity.ActiveEntity;
 import uet.oop.bomberman.utils.Sound;
 
 /**
- * PowerUp - class of items
+ * Powerup - class of items
  * Attribute: boolean active - check if item has already been active
  */
 public abstract class PowerUp extends ActiveEntity {
 
     protected boolean active;
-
-    protected int timeCount = 20;
-
-    private boolean playedSound = false; // play sound
+    protected int timeAfter = 20;
+    private boolean playedS = false; // play sound
 
     public PowerUp(int x, int y, Image img) {
         super(x, y, img);
@@ -37,13 +35,13 @@ public abstract class PowerUp extends ActiveEntity {
     @Override
     public void update() {
         if (active) {
-            if (!playedSound) {
+            if (!playedS) {
                 new Sound("sound/powerup.wav", "default");
-                playedSound = true;
+                playedS = true;
             }
-            timeCount--; // countdown after active power up
-            if (timeCount < 0) {
-                delete = true; // delete
+            timeAfter--; // countdown after active power up
+            if (timeAfter < 0) {
+                delete = true; // Delete
             }
         }
     }

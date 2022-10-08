@@ -34,42 +34,42 @@ public class BombermanGame extends Application {
     public static long gameTime = 14400;
     public static int level = 1;
     public static int maxLevel = 3;
-    public static int countEnemy = 0;
+    public static int countenemy = 0;
     public static int countBomber = 0;
-    public static int gameOverTIMEDELAY = 120;
+    public static int gameoverTIMEEDELAY = 120;
+
     /**
-     * Mảng 2 chiều char[][] chứa vị trí của brick, wall và bomber
-     * phục vụ cho việc dò đường của enemy
+     * char[][] contains index of brick, wall and bomber
      */
     public static char[][] map;
-    public static char[][] bombMap = new char[HEIGHT][WIDTH];
+    public static char[][] bombmap = new char[HEIGHT][WIDTH];
 
     /**
-     * HashMap countBomb count bomb already used by player
+     * HashMap countbomb count the number of bombs were put on map
      */
-    public static HashMap<Integer, Integer> countBomb = new HashMap<>();
+    public static HashMap<Integer, Integer> countbomb = new HashMap<>();
 
     /**
-     * HashMap Score contains score of players
+     * HashMap Score save score of players
      */
     public static HashMap<Integer,Integer> score = new HashMap<>();
 
     /**
-     * ArrayList contains activeEntities
+     * ArrayList contains activeEntities in game
      */
     public static List<ActiveEntity> activeEntities = new ArrayList<>();
 
     /**
-     * ArrayList contains stillObject, eg : wall, grass
+     * ArrayList contain stillObject, ex: wall, grass
      */
     public static List<Entity> stillObjects = new ArrayList<>();
 
     int bomberMode = 0;
-    int gameOverTimer = 300;
+    int gameoverTimer = 300;
     public static boolean portalCheck = false;
     ImageView buttonPlayer1;
     ImageView buttonPlayer2;
-    ImageView startScreenView;
+    ImageView startscreenView;
 
 
     public static void main(String[] args) {
@@ -78,23 +78,23 @@ public class BombermanGame extends Application {
 
     @Override
     public void start(Stage stage) {
-        // Create Canvas
+        // Tao Canvas
         canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT);
         gc = canvas.getGraphicsContext2D();
 
         //=======================START - LEVELUP - GAME OVER SCREEN====================
-        Image startScreen = new Image("images/author1.png");
+        Image startscreen = new Image("images/author1.png");
         Image levelUpScreen = new Image("images/levelup.png");
-        Image gameOver = new Image("images/gameover.png");
+        Image gameover = new Image("images/gameover.png");
 
-        startScreenView = new ImageView(startScreen);
+        startscreenView = new ImageView(startscreen);
         ImageView levelUpView = new ImageView(levelUpScreen);
-        ImageView gameOverView = new ImageView(gameOver);
+        ImageView gameoverView = new ImageView(gameover);
 
-        startScreenView.setX(0);
-        startScreenView.setY(0);
-        startScreenView.setScaleX(1);
-        startScreenView.setScaleY(1);
+        startscreenView.setX(0);
+        startscreenView.setY(0);
+        startscreenView.setScaleX(1);
+        startscreenView.setScaleY(1);
 
         levelUpView.setX(0);
         levelUpView.setY(0);
@@ -102,11 +102,11 @@ public class BombermanGame extends Application {
         levelUpView.setScaleY(1);
         levelUpView.setVisible(false);
 
-        gameOverView.setX(0);
-        gameOverView.setY(0);
-        gameOverView.setScaleX(1);
-        gameOverView.setScaleY(1);
-        gameOverView.setVisible(false);
+        gameoverView.setX(0);
+        gameoverView.setY(0);
+        gameoverView.setScaleX(1);
+        gameoverView.setScaleY(1);
+        gameoverView.setVisible(false);
 
         Image player1 = new Image("images/button1.png");
         Image player2 = new Image("images/button2.png");
@@ -135,9 +135,9 @@ public class BombermanGame extends Application {
 
 
         //==================add START SCREEN=======
-        root.getChildren().add(startScreenView);
+        root.getChildren().add(startscreenView);
         root.getChildren().add(levelUpView);
-        root.getChildren().add(gameOverView);
+        root.getChildren().add(gameoverView);
         root.getChildren().add(buttonPlayer1);
         root.getChildren().add(buttonPlayer2);
         //==========================================
@@ -148,21 +148,21 @@ public class BombermanGame extends Application {
         // Create scene and add root to scene
         scene = new Scene(root);
 
-        // Add scene in stage
+        // Add scene to stage
         stage.setScene(scene);
         stage.show();
         stage.setTitle("BOMBERMAN CỦA 3 CON WỶ :>");
         Image icon = new Image("images/icon.png");
         stage.getIcons().add(icon);
 
-        // play bg music
+        // Play BGM
         new Sound("sound/start.wav", "title");
 
         // Listen to input from scene
         KeyHandle.keyHandlers(scene);
 
         gameState = "startmenu";
-        // 60 per 1 s
+        // 60 times per 1 second
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -180,16 +180,16 @@ public class BombermanGame extends Application {
                 }
 
                 if (gameState.equals("gameover")) {
-                    if (gameOverTimer > 0) { // countdown after game over
-                        gameOverTimer--;
-                        gameOverView.setVisible(true);
+                    if (gameoverTimer > 0) { // count delay time after game over, 5 s
+                        gameoverTimer--;
+                        gameoverView.setVisible(true);
                     } else { // reset game
                         level = 1;
                         resetGame();
-                        map = Map.MapReader("res/levels/Level" + level + ".txt");
-                        Map.MapLoader();
-                        gameOverView.setVisible(false);
-                        gameOverTimer = 300;    // reset time delay if game over
+                        map = Map.ReadMap("res/levels/Level" + level + ".txt");
+                        Map.LoadMap();
+                        gameoverView.setVisible(false);
+                        gameoverTimer = 300;    // set time delay if game over
                         gameState = "startmenu";
                         return;
                     }
@@ -199,17 +199,17 @@ public class BombermanGame extends Application {
                     if (level == maxLevel) {
                         levelUpView.setVisible(false);
                         gameState = "gameover";
-                        gameOverTimer = 300;
+                        gameoverTimer = 300;
                         return;
                     }
-                    if (gameOverTimer > 0) { // countdown game over time delay
-                        gameOverTimer--;
+                    if (gameoverTimer > 0) { // count delay time after game over, 5 s
+                        gameoverTimer--;
                         levelUpView.setVisible(true);
                     } else { // reset game
                         level++;
                         resetGame();
-                        map = Map.MapReader("res/levels/Level" + level + ".txt");
-                        Map.MapLoader();
+                        map = Map.ReadMap("res/levels/Level" + level + ".txt");
+                        Map.LoadMap();
                         if (bomberMode == 1) {
                             addOnePlayer();
                         }
@@ -218,7 +218,7 @@ public class BombermanGame extends Application {
                         }
                         levelUpView.setVisible(false);
                         gameState = "running";
-                        gameOverTimer = 300;    // reset delay time if game over
+                        gameoverTimer = 300;    // set time delay if game over
                         return;
                     }
                 }
@@ -228,29 +228,29 @@ public class BombermanGame extends Application {
         };
         timer.start();
 
-        // Start 1 player mode
+        // Start 1 player
         buttonPlayer1.setOnMouseClicked(event -> {
             Menu.Player2.setVisible(false);
             resetGame();
-            map = Map.MapReader("res/levels/Level" + level + ".txt");
-            Map.MapLoader();
+            map = Map.ReadMap("res/levels/Level" + level + ".txt");
+            Map.LoadMap();
             addOnePlayer();
             hideStart();
         });
 
-        // Start 2 players mode
+        // Start 2 players
         buttonPlayer2.setOnMouseClicked(event -> {
 
             resetGame();
-            map = Map.MapReader("res/levels/Level" + level + ".txt");
-            Map.MapLoader();
+            map = Map.ReadMap("res/levels/Level" + level + ".txt");
+            Map.LoadMap();
             addTwoPlayer();
             hideStart();
         });
     }
 
     private void hideStart() {
-        startScreenView.setVisible(false);
+        startscreenView.setVisible(false);
         buttonPlayer1.setDisable(true);
         buttonPlayer1.setVisible(false);
         buttonPlayer2.setVisible(false);
@@ -258,7 +258,7 @@ public class BombermanGame extends Application {
     }
 
     private void showStart() {
-        startScreenView.setVisible(true);
+        startscreenView.setVisible(true);
         buttonPlayer1.setVisible(true);
         buttonPlayer2.setVisible(true);
         buttonPlayer1.setDisable(false);
@@ -269,7 +269,7 @@ public class BombermanGame extends Application {
         bomberMode = 1;
         Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage(), 0, "UP","DOWN","LEFT","RIGHT","ENTER");
         activeEntities.add(bomberman);
-        countBomber=1;
+        countBomber = 1;
         gameState = "running";
     }
 
@@ -279,18 +279,18 @@ public class BombermanGame extends Application {
         Bomber bomberman2 = new Bomber(1, 11, Sprite.player_right.getFxImage(), 1, "W","S","A","D","TAB");
         activeEntities.add(bomberman);
         activeEntities.add(bomberman2);
-        countBomber=2;
+        countBomber = 2;
         gameState = "running";
     }
 
-    private void resetGame() { // reset Game
+    private void resetGame() { // reset game
         activeEntities.clear();
         stillObjects.clear();
         score.clear();
-        countBomb.clear();
-        countEnemy=0;
-        map = new char[1][1]; //will be re-assign later
-        bombMap = new char[1][1]; //will be re-assign later
+        countbomb.clear();
+        countenemy=0;
+        map = new char[1][1]; //will be re assign later
+        bombmap = new char[1][1]; //will be re assign later
         gameTime = 48800;
     }
 
@@ -300,11 +300,11 @@ public class BombermanGame extends Application {
      */
     public void update() {
         Menu.updateMenu();
-        if(countBomber <=0 ) { // nếu bomber chết hết
-            gameOverTIMEDELAY--; // delay 2 giây
-            if(gameOverTIMEDELAY<0){
+        if (countBomber <= 0 ) {
+            gameoverTIMEEDELAY--;
+            if(gameoverTIMEEDELAY < 0) {
                 gameState = "gameover";
-                gameOverTIMEDELAY = 120;
+                gameoverTIMEEDELAY = 120;
                 return;
             }
         }
@@ -313,7 +313,7 @@ public class BombermanGame extends Application {
             gameState = "gameover";
             return;
         }
-        if(countEnemy<=0 && portalCheck) {
+        if(countenemy <= 0 && portalCheck) {
             gameState = "levelup";
             return;
         }
@@ -338,8 +338,7 @@ public class BombermanGame extends Application {
 
 
     /**
-     * Render on canvas
-     * Render 60 times in 1s
+     * Render
      */
     public void render() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());

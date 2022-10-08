@@ -3,6 +3,7 @@ package uet.oop.bomberman.entities.ActiveEntity.moveable;
 import javafx.scene.image.Image;
 import uet.oop.bomberman.entities.ActiveEntity.ActiveEntity;
 import uet.oop.bomberman.graphics.Sprite;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,9 +55,9 @@ public abstract class PortableEntity extends ActiveEntity {
     public abstract void moveRight();
 
     public static boolean canMove(int x,int y, char[][] map) {
-        return map[y / Sprite.SCALED_SIZE][x / Sprite.SCALED_SIZE] != '#'
-                && map[y / Sprite.SCALED_SIZE][x / Sprite.SCALED_SIZE] != '*'
-                && map[y / Sprite.SCALED_SIZE][x / Sprite.SCALED_SIZE] != '%';
+        return map[y/ Sprite.SCALED_SIZE][x/Sprite.SCALED_SIZE] != '#'
+                && map[y/ Sprite.SCALED_SIZE][x/Sprite.SCALED_SIZE] != '*'
+                && map[y/ Sprite.SCALED_SIZE][x/Sprite.SCALED_SIZE] != '%';
     }
 
 

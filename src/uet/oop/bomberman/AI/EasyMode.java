@@ -5,36 +5,36 @@ import uet.oop.bomberman.BombermanGame;
 import java.util.Random;
 
 /**
- * Ai easy mode: enemy moves randomly, find the movable path
+ * AI easy mode: enemy moves randomly, find the movable path
  */
 public class EasyMode {
     public static int calculateDirection(int x, int y, char[][] map) {
-        Random random = new Random(); // random 1 in 4 paths
-        int key = random.nextInt(4); // a path to move
-        boolean found = false; // if found a path
-        while (!found) {
+        Random random = new Random();
+        int key = random.nextInt(4);
+        boolean find = false;
+        while (!find) {
             key = random.nextInt(4);
-            if (key == 0) { // move up
+            if (key == 0) { // moveUp
                 if (map[x - 1][y] == ' ' && BombermanGame.bombmap[x-1][y] == ' ') {
-                    found = true;
+                    find = true;
                     break;
                 }
             }
-            if (key == 1) { // move down
+            if (key == 1) { // moveDown
                 if (map[x + 1][y] == ' '  && BombermanGame.bombmap[x+1][y] == ' ') {
-                    found = true;
+                    find = true;
                     break;
                 }
             }
-            if (key == 2) { // move left
-                if (map[x][y - 1] == ' '  && BombermanGame.bombmap[x][y-1] == ' ') {
-                    found = true;
-                    break;
-                }
-            }
-            if (key == 3) { // move right
+            if (key == 3) { // moveRight
                 if (map[x][y + 1] == ' '  && BombermanGame.bombmap[x][y+1] == ' ') {
-                    found = true;
+                    find = true;
+                    break;
+                }
+            }
+            if (key == 2) { // moveLeft
+                if (map[x][y - 1] == ' '  && BombermanGame.bombmap[x][y-1] == ' ') {
+                    find = true;
                     break;
                 }
             }

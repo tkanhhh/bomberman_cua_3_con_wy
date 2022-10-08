@@ -6,7 +6,7 @@ import uet.oop.bomberman.graphics.Sprite;
 
 public class Brick extends ActiveEntity {
 
-    private int animationBetween = 40;
+    private int animationBeetween = 40;
     private int animationTime = 40;
     public Brick(int x, int y, Image img) {
         super(x, y, img);
@@ -21,13 +21,13 @@ public class Brick extends ActiveEntity {
     @Override
     public void update() {
         if (isDead) {
-            animationTime--; // countdown after bomb explode
+            animationTime--; // countdown
             if (animationTime < 0) {
                 BombermanGame.map[getSmallY()][getSmallX()] = ' ';
-                delete = true; // Delete
+                delete = true; //
             }
-            // Animation brick explode
-            setImg(Sprite.movingSprite(Sprite.brick_exploded, Sprite.brick_exploded1, Sprite.brick_exploded2, animationTime, animationBetween).getFxImage());
+            // Animation when brick explode
+            setImg(Sprite.movingSprite(Sprite.brick_exploded,Sprite.brick_exploded1,Sprite.brick_exploded2,animationTime,animationBeetween).getFxImage());
         }
     }
 }

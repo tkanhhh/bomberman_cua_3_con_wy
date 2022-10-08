@@ -12,16 +12,16 @@ import uet.oop.bomberman.graphics.Sprite;
 //Create flame when bomb explode
 public class Flame extends ActiveEntity {
 
-    private final int bomberID;      // distinguish bomb from different players
-    public int direction;            // 0-up , 1-down , 2-left , 3-right - direction of flame
+    private final int bomberID; // distinguish bomb from different players
+    public int direction;       // 0-up , 1-down , 2-left , 3-right  direction of flame
     protected int timeToExplode = 0; // countdown time before show up flame
-    public int timeAfter = 40;      // countdown time flame showing up
-    public boolean last;             // check last flame length
+    public int _timeAfter = 40;        // countdown time flame showing up
+    public boolean last;               // check last flame length
 
     /**
      * @param x
      * @param y
-     * @param direction 0-up , 1-down , 2-left , 3-right
+     * @param direction hướng ,0-up , 1-down , 2-left , 3-right
      * @param last last flame length
      * @param img
      */
@@ -41,30 +41,30 @@ public class Flame extends ActiveEntity {
             timeToExplode--;    // countdown to explode
         } else { // exploded
             show = true;    // show
-            timeAfter--;   // countdown
+            _timeAfter--;   // countdown
 
-            if (timeAfter < 0) {
+            if (_timeAfter < 0) {
                 delete = true;
             }
 
             if (direction == 0 || direction == 1 && !last) { // vertical - not last
-                setImg(Sprite.movingSprite(Sprite.explosion_vertical, Sprite.explosion_vertical1, Sprite.explosion_vertical2, timeAfter, animationBetWeen).getFxImage());
+                setImg(Sprite.movingSprite(Sprite.explosion_vertical, Sprite.explosion_vertical1, Sprite.explosion_vertical2, _timeAfter, animationBetWeen).getFxImage());
             }
             if (direction == 0 && last) { // vertical - up - last
-                setImg(Sprite.movingSprite(Sprite.explosion_vertical_top_last, Sprite.explosion_vertical_top_last1, Sprite.explosion_vertical_top_last2, timeAfter, animationBetWeen).getFxImage());
+                setImg(Sprite.movingSprite(Sprite.explosion_vertical_top_last, Sprite.explosion_vertical_top_last1, Sprite.explosion_vertical_top_last2, _timeAfter, animationBetWeen).getFxImage());
             }
             if (direction == 1 && last) { // vertical - down - last
-                setImg(Sprite.movingSprite(Sprite.explosion_vertical_down_last, Sprite.explosion_vertical_down_last1, Sprite.explosion_vertical_down_last2, timeAfter, animationBetWeen).getFxImage());
+                setImg(Sprite.movingSprite(Sprite.explosion_vertical_down_last, Sprite.explosion_vertical_down_last1, Sprite.explosion_vertical_down_last2, _timeAfter, animationBetWeen).getFxImage());
             }
 
             if (direction == 2 || direction == 3 && !last) { // horizontal - not last
-                setImg(Sprite.movingSprite(Sprite.explosion_horizontal, Sprite.explosion_horizontal1, Sprite.explosion_horizontal2, timeAfter, animationBetWeen).getFxImage());
+                setImg(Sprite.movingSprite(Sprite.explosion_horizontal, Sprite.explosion_horizontal1, Sprite.explosion_horizontal2, _timeAfter, animationBetWeen).getFxImage());
             }
             if (direction == 2 && last) { // horizontal - left - last
-                setImg(Sprite.movingSprite(Sprite.explosion_horizontal_left_last, Sprite.explosion_horizontal_left_last1, Sprite.explosion_horizontal_left_last2, timeAfter, animationBetWeen).getFxImage());
+                setImg(Sprite.movingSprite(Sprite.explosion_horizontal_left_last, Sprite.explosion_horizontal_left_last1, Sprite.explosion_horizontal_left_last2, _timeAfter, animationBetWeen).getFxImage());
             }
             if (direction == 3 && last) { // horizontal - right - last
-                setImg(Sprite.movingSprite(Sprite.explosion_horizontal_right_last, Sprite.explosion_horizontal_right_last1, Sprite.explosion_horizontal_right_last2, timeAfter, animationBetWeen).getFxImage());
+                setImg(Sprite.movingSprite(Sprite.explosion_horizontal_right_last, Sprite.explosion_horizontal_right_last1, Sprite.explosion_horizontal_right_last2, _timeAfter, animationBetWeen).getFxImage());
             }
         }
     }
@@ -76,13 +76,13 @@ public class Flame extends ActiveEntity {
      */
     @Override
     public void collide(ActiveEntity entity) {
-        if(!show) { // unnecessary to check
+        if(!show) { //unnecessary to check
             return;
         }
-        if(entity.isDead) { // unnecessary to check
+        if(entity.isDead) {
             return;
         }
-        if(entity instanceof Flame) { // // unnecessary to check with other flame
+        if(entity instanceof Flame) { // unnecessary to check
             return;
         }
         if (entity instanceof Bomb && this.getSmallX() == entity.getSmallX() && this.getSmallY() == entity.getSmallY()) {

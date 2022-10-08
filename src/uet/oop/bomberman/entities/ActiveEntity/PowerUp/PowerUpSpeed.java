@@ -6,7 +6,7 @@ public class PowerUpSpeed extends PowerUp {
 
     public int value = 1;
 
-    public PowerUpSpeed(int x, int y, Image img) {
-        super(x, y, img);
+    public PowerUpSpeed(int xUnit, int yUnit, Image img) {
+        super(xUnit, yUnit, img);
     }
 }
