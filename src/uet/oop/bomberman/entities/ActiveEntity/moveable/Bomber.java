@@ -10,16 +10,15 @@ import uet.oop.bomberman.utils.KeyHandle;
 import uet.oop.bomberman.utils.Sound;
 
 /**
- * Nhân vật chính bomberman - thế thừa từ tớp MovableEntity
+ * Player
  */
 public class Bomber extends PortableEntity {
 
     public int bomberID =0;
-    public int maxBomb; // số lượng bom tối đa mà bomber đặt được trên map
+    public int maxBomb; // max Bombs player can put in map
     public int timeDelayEachBom = 30;
     private int powerFlames;
     private int animationTime = 60;
-    private boolean wallpass; // đi xuyên tường
     private boolean playedS = false;
 
     //KEY BINDING
@@ -30,83 +29,82 @@ public class Bomber extends PortableEntity {
     private final String putBomb;
 
     /**
-     * Tạo 1 con bomberman với các thuộc tính và nút muốn gán để di chuyển con bomberman đó
-     * @param x x đơn vị
-     * @param y y đơn vị
-     * @param img hình ảnh
-     * @param keyUP String - nút đi lên
-     * @param keyDOWN String - nút đi xuống
-     * @param keyLEFT String - nút đi trái
-     * @param keyRIGHT String - nút đi phải
+     * Create a bomberman with attributes and button to move
+     * @param x
+     * @param y
+     * @param img
+     * @param keyUp String - button move up
+     * @param keyDown String - button move down
+     * @param keyLeft String - button move left
+     * @param keyRight String - button move right
      * @param putBomb String - nút đặt bom
      */
-    public Bomber(int x, int y, Image img, int bomberid, String keyUP, String keyDOWN, String keyLEFT, String keyRIGHT, String putBomb) {
-        super(x, y, img);        // tạo đối tượng bomber với toạ độ x,y là toạ độ đơn vị
-        this.isDead = false;     // ban đầu đối tượng chưa chết
-        this.maxBomb = 1;        // số bom tối đa mang theo được là 1
-        this.speed = 2;          // tốc độ di chuyển ban đầu bằng 3
-        this.powerFlames = 1;    // mặc định ban đầu bom có độ dài 1
+    public Bomber(int x, int y, Image img, int bomberid, String keyUp, String keyDown, String keyLeft, String keyRight, String putBomb) {
+        super(x, y, img);        // create bomberman with x/y-coordinate
+        this.isDead = false;     // not dead at first
+        this.maxBomb = 1;        // mas bomb can put in map is 1
+        this.speed = 4;          // at first speed is 4
+        this.powerFlames = 1;    // at first length of flame is 1
         this.bomberID = bomberid;
-        this.wallpass = false;
         this.scoreValue = 50;
 
-        BombermanGame.countbomb.put(bomberid,0);
-        BombermanGame.score.put(bomberid,0);
+        BombermanGame.countbomb.put(bomberid, 0);
+        BombermanGame.score.put(bomberid, 0);
 
         //Create bomber animation
-        createMoveUpAnimation(Sprite.player_up,Sprite.player_up_1,Sprite.player_up_2);
-        createMoveDownAnimation(Sprite.player_down,Sprite.player_down_1,Sprite.player_down_2);
-        createMoveLeftAnimation(Sprite.player_left,Sprite.player_left_1,Sprite.player_left_2);
-        createMoveRightAnimation(Sprite.player_right,Sprite.player_right_1,Sprite.player_right_2);
+        createMoveUpAnimation(Sprite.player_up, Sprite.player_up_1, Sprite.player_up_2);
+        createMoveDownAnimation(Sprite.player_down, Sprite.player_down_1, Sprite.player_down_2);
+        createMoveLeftAnimation(Sprite.player_left, Sprite.player_left_1, Sprite.player_left_2);
+        createMoveRightAnimation(Sprite.player_right, Sprite.player_right_1, Sprite.player_right_2);
 
         //BIND KEY
-        this.keyUP = keyUP;
-        this.keyDOWN = keyDOWN;
-        this.keyLEFT = keyLEFT;
-        this.keyRIGHT = keyRIGHT;
+        this.keyUP = keyUp;
+        this.keyDOWN = keyDown;
+        this.keyLEFT = keyLeft;
+        this.keyRIGHT = keyRight;
         this.putBomb = putBomb;
     }
 
     @Override
     public void moveUp() {
-        if (canMove(this.getX()+3,this.getY()-speed, BombermanGame.map) && canMove(this.getX()+ Sprite.SCALED_SIZE-5,this.getY()-speed,BombermanGame.map) || wallpass) {
-            if(BombermanGame.map[(this.getY()-speed)/ Sprite.SCALED_SIZE][(this.getX()+3)/Sprite.SCALED_SIZE] != '%') {
+        if (canMove(this.getX() + 3,this.getY() - speed, BombermanGame.map) && canMove(this.getX() + Sprite.SCALED_SIZE - 5,this.getY() - speed, BombermanGame.map)) {
+            if(BombermanGame.map[(this.getY() - speed) / Sprite.SCALED_SIZE][(this.getX() + 3) / Sprite.SCALED_SIZE] != '%') {
                 this.setY(this.getY() - speed);
             }
 
         }
-        this.setImg(Sprite.movingSprite(moveUpAnimation.get(0),moveUpAnimation.get(1),moveUpAnimation.get(2),this.getY(), animationBetWeen).getFxImage());
+        this.setImg(Sprite.movingSprite(moveUpAnimation.get(0), moveUpAnimation.get(1), moveUpAnimation.get(2), this.getY(), animationBetWeen).getFxImage());
     }
 
     @Override
     public void moveDown() {
-        if (canMove(this.getX()+3,this.getY()+speed+Sprite.SCALED_SIZE,BombermanGame.map) && canMove(this.getX()+Sprite.SCALED_SIZE-5,this.getY()+speed+Sprite.SCALED_SIZE-3,BombermanGame.map) || wallpass ) {
-            if(BombermanGame.map[(this.getY()+speed+Sprite.SCALED_SIZE)/ Sprite.SCALED_SIZE][(this.getX()+3)/Sprite.SCALED_SIZE] != '%') {
+        if (canMove(this.getX() + 3,this.getY() + speed + Sprite.SCALED_SIZE, BombermanGame.map) && canMove(this.getX() + Sprite.SCALED_SIZE - 5,this.getY() + speed + Sprite.SCALED_SIZE - 3, BombermanGame.map)) {
+            if(BombermanGame.map[(this.getY() + speed + Sprite.SCALED_SIZE) / Sprite.SCALED_SIZE][(this.getX() + 3) / Sprite.SCALED_SIZE] != '%') {
                 this.setY(this.getY() + speed);
             }
         }
-        this.setImg(Sprite.movingSprite(moveDownAnimation.get(0),moveDownAnimation.get(1),moveDownAnimation.get(2),this.getY(), animationBetWeen).getFxImage());
+        this.setImg(Sprite.movingSprite(moveDownAnimation.get(0), moveDownAnimation.get(1), moveDownAnimation.get(2), this.getY(), animationBetWeen).getFxImage());
     }
 
     @Override
     public void moveLeft() {
-        if (canMove(this.getX()-speed,this.getY()+3,BombermanGame.map) && canMove(this.getX()-speed,this.getY()+Sprite.SCALED_SIZE-3,BombermanGame.map) || wallpass) {
-            if(BombermanGame.map[(this.getY()+3)/ Sprite.SCALED_SIZE][(this.getX()-speed)/Sprite.SCALED_SIZE] != '%') {
+        if (canMove(this.getX() - speed,this.getY() + 3, BombermanGame.map) && canMove(this.getX() - speed,this.getY() + Sprite.SCALED_SIZE - 3, BombermanGame.map)) {
+            if(BombermanGame.map[(this.getY() + 3) / Sprite.SCALED_SIZE][(this.getX()-speed) / Sprite.SCALED_SIZE] != '%') {
                 this.setX(this.getX() - speed);
             }
 
         }
-        this.setImg(Sprite.movingSprite(moveLeftAnimation.get(0),moveLeftAnimation.get(1),moveLeftAnimation.get(2),this.getX(), animationBetWeen).getFxImage());
+        this.setImg(Sprite.movingSprite(moveLeftAnimation.get(0), moveLeftAnimation.get(1), moveLeftAnimation.get(2), this.getX(), animationBetWeen).getFxImage());
     }
 
     @Override
     public void moveRight() {
-        if (canMove(this.getX()+Sprite.SCALED_SIZE-5+speed,this.getY()+3,BombermanGame.map) && canMove(this.getX()+speed+Sprite.SCALED_SIZE-3,this.getY()+Sprite.SCALED_SIZE-5,BombermanGame.map) || wallpass) {
-            if(BombermanGame.map[(this.getY()+3)/ Sprite.SCALED_SIZE][(this.getX()+Sprite.SCALED_SIZE-5+speed)/Sprite.SCALED_SIZE] != '%') {
+        if (canMove(this.getX() + Sprite.SCALED_SIZE - 5 + speed, this.getY() + 3, BombermanGame.map) && canMove(this.getX() + speed+Sprite.SCALED_SIZE-3, this.getY() + Sprite.SCALED_SIZE - 5, BombermanGame.map)) {
+            if(BombermanGame.map[(this.getY() + 3) / Sprite.SCALED_SIZE][(this.getX() + Sprite.SCALED_SIZE - 5 + speed) / Sprite.SCALED_SIZE] != '%') {
                 this.setX(this.getX() + speed);
             }
         }
-        this.setImg(Sprite.movingSprite(moveRightAnimation.get(0),moveRightAnimation.get(1),moveRightAnimation.get(2),this.getX(), animationBetWeen).getFxImage());
+        this.setImg(Sprite.movingSprite(moveRightAnimation.get(0), moveRightAnimation.get(1), moveRightAnimation.get(2), this.getX(), animationBetWeen).getFxImage());
     }
 
     public void upgrade(PowerUp powerUp) {
@@ -131,9 +129,9 @@ public class Bomber extends PortableEntity {
                 playedS = true;
             }
             if (animationTime < 0) {
-                delete = true; // Xoá
+                delete = true; // Delete
             }
-            // Animation Bomber chết
+            // Animation when Bomber dies
             setImg(Sprite.movingSprite(Sprite.player_dead1, Sprite.player_dead2, Sprite.player_dead3, animationTime, 30).getFxImage());
         } else {
             if (KeyHandle.getKeys().contains(keyUP)) {
@@ -152,7 +150,7 @@ public class Bomber extends PortableEntity {
                 if (BombermanGame.countbomb.get(bomberID) < maxBomb && timeDelayEachBom <= 0) {
                     new Sound("sound/putboom.wav", "default");
                     timeDelayEachBom = 50;
-                    BombermanGame.activeEntities.add(new Bomb(this.getSmallX(), this.getSmallY(), Sprite.bomb.getFxImage(), bomberID,powerFlames));
+                    BombermanGame.activeEntities.add(new Bomb(this.getSmallX(), this.getSmallY(), Sprite.bomb.getFxImage(), bomberID, powerFlames));
                     System.gc();
                 }
             }
@@ -161,7 +159,7 @@ public class Bomber extends PortableEntity {
 
     @Override
     public void collide(ActiveEntity entity) {
-        //check bomber va chạm với power up
+        //check if Bomber collide with power up item
         if (entity instanceof PowerUp && !((PowerUp) entity).isActive()) {
             if (this.getSmallX() == entity.getSmallX() && this.getSmallY() == entity.getSmallY()) {
                 this.upgrade((PowerUp) entity);
