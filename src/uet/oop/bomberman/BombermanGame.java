@@ -33,7 +33,7 @@ public class BombermanGame extends Application {
     public static String gameState = "";
     public static long gameTime = 14400;
     public static int level = 1;
-    public static int maxLevel = 1;
+    public static int maxLevel = 3;
     public static int countenemy = 0;
     public static int countBomber = 0;
     public static int gameoverTIMEEDELAY = 120;
@@ -291,7 +291,7 @@ public class BombermanGame extends Application {
         countenemy=0;
         map = new char[1][1]; //will be re assign later
         bombmap = new char[1][1]; //will be re assign later
-        gameTime = 7300;
+        gameTime = 48800;
     }
 
 

@@ -64,14 +64,26 @@ public class Map {
                         break;
 
                     case '*': // BRICK - ACTIVE OBJECT
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
                         object = new Brick(j, i, Sprite.brick.getFxImage());
                         BombermanGame.activeEntities.add((ActiveEntity) object);
                         break;
 
                     case 'x': // PORTAL - ACTIVE OBJECT
                         // tạo layer 0 - grass
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
 
                         // tạo layer 1 - Portal
                         object = new Portal(j, i, Sprite.portal.getFxImage());
@@ -83,29 +95,53 @@ public class Map {
                         break;
 
                     case '1': // BALLOOM - MOVABLE ENTITY
-                        BombermanGame.activeEntities.add(new Balloon(j, i, Sprite.balloom_left1.getFxImage()));
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        BombermanGame.activeEntities.add(new Dsa(j, i, Sprite.dsa_left1.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
                         BombermanGame.map[i][j] = ' ';
                         BombermanGame.countenemy++;
                         break;
 
                     case '4': // KONDORIA - MOVABLE ENTITY
                         BombermanGame.activeEntities.add(new Kondoria(j, i, Sprite.kondoria_right1.getFxImage()));
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
                         BombermanGame.map[i][j] = ' ';
                         BombermanGame.countenemy++;
                         break;
 
                     case '5': // KONDORIA - MOVABLE ENTITY
                         BombermanGame.activeEntities.add(new Doll(j, i, Sprite.doll_right1.getFxImage()));
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
                         BombermanGame.map[i][j] = ' ';
                         BombermanGame.countenemy++;
                         break;
 
                     case 'b': // MORE BOMBS
                         // tạo layer 0 - grass
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
 
                         // tạo layer 1 - PowerUP
                         object = new PowerUpMoreBombs(j, i, Sprite.powerup_bombs.getFxImage());
@@ -118,7 +154,13 @@ public class Map {
 
                     case 'f': // MORE FLAMES
                         // tạo layer 0 - grass
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
 
                         // tạo layer 1 - PowerUP
                         object = new PowerUpFlames(j, i, Sprite.powerup_flames.getFxImage());
@@ -131,7 +173,13 @@ public class Map {
 
                     case 's': // SPEED
                         // tạo layer 0 - grass
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
 
                         // tạo layer 1 - PowerUP
                         object = new PowerUpSpeed(j, i, Sprite.powerup_speed.getFxImage());
@@ -144,7 +192,13 @@ public class Map {
 
 
                     default: // GRASS
-                        BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
                         BombermanGame.map[i][j] = ' ';
                         break;
                 }

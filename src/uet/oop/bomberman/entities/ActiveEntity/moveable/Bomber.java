@@ -44,7 +44,7 @@ public class Bomber extends PortableEntity {
         super(x, y, img);        // tạo đối tượng bomber với toạ độ x,y là toạ độ đơn vị
         this.isDead = false;     // ban đầu đối tượng chưa chết
         this.maxBomb = 1;        // số bom tối đa mang theo được là 1
-        this.speed = 3;          // tốc độ di chuyển ban đầu bằng 3
+        this.speed = 2;          // tốc độ di chuyển ban đầu bằng 3
         this.powerFlames = 1;    // mặc định ban đầu bom có độ dài 1
         this.bomberID = bomberid;
         this.wallpass = false;
