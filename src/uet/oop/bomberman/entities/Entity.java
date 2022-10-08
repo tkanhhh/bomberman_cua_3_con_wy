@@ -9,11 +9,11 @@ import uet.oop.bomberman.graphics.Sprite;
 
 public abstract class Entity {
 
-    public boolean show = true; // nếu bằng true thì render ra
+    public boolean show = true; // if true then render
 
-    //Tọa độ X tính từ góc trái trên trong Canvas
     protected Sprite sprite;
 
+    //Tọa độ X tính từ góc trái trên trong Canvas
     protected int x;
 
     //Tọa độ Y tính từ góc trái trên trong Canvas
@@ -47,23 +47,22 @@ public abstract class Entity {
         this.img = img;
     }
 
-    //Từ toạ độ x trên canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
+    //x in map
     public int getSmallX() {
-        return (x+(Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
+        return (x + (Sprite.SCALED_SIZE / 2)) / Sprite.SCALED_SIZE;
     }
 
-    //Từ toạ độ y canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
+    //y in map
     public int getSmallY(){
-        return (y+(Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
+        return (y + (Sprite.SCALED_SIZE / 2)) / Sprite.SCALED_SIZE;
     }
 
     public int getEXSmallX() {
-        return (x)/Sprite.SCALED_SIZE;
+        return (x) / Sprite.SCALED_SIZE;
     }
 
-    //Từ toạ độ y canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
     public int getEXSmallY(){
-        return (y)/Sprite.SCALED_SIZE;
+        return (y) / Sprite.SCALED_SIZE;
     }
 
     //Khởi tạo đối tượng, chuyển từ tọa độ đơn vị sang tọa độ trong canvas
