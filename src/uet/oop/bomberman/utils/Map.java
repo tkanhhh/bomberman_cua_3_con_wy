@@ -18,13 +18,13 @@ import java.util.Scanner;
 
 public class Map {
     // Đọc map
-    public static char[][] ReadMap(String filedir) {
+    public static char[][] ReadMap(String map_file) {
         char[][] map = new char[BombermanGame.HEIGHT][BombermanGame.WIDTH];
         int level = 1;
         int height = 0;
         int width = 0;
         try {
-            FileReader file = new FileReader(filedir);
+            FileReader file = new FileReader(map_file);
             Scanner sc = new Scanner(file);
             level = sc.nextInt();
             height = sc.nextInt();
@@ -53,12 +53,12 @@ public class Map {
                 BombermanGame.bombmap[i][j] = ' ';
                 Entity object = null;
                 switch (a) {
-                    case '#': // WALL - STILL OBJECT
+                    case '#': // WALL - FIXED OBJECT
                         object = new Wall(j, i, Sprite.wall.getFxImage());
                         BombermanGame.stillObjects.add(object);
                         break;
 
-                    case '%': // WALL - STILL OBJECT
+                    case '%': // WALL - FIXED OBJECT
                         object = new Wall(j, i, Sprite.wall.getFxImage());
                         BombermanGame.stillObjects.add(object);
                         break;
@@ -94,7 +94,7 @@ public class Map {
                         BombermanGame.map[i][j] = '*';
                         break;
 
-                    case '1': // DSA - MOVABLE ENTITY
+                    case '1': // DSA - PORTABLE ENTITY
                         BombermanGame.activeEntities.add(new Dsa(j, i, Sprite.dsa_left1.getFxImage()));
                         if (BombermanGame.level == 1) {
                             BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
@@ -107,7 +107,7 @@ public class Map {
                         BombermanGame.countenemy++;
                         break;
 
-                    case '2': // OOP - MOVABLE ENTITY
+                    case '2': // OOP - PORTABLE ENTITY
                         BombermanGame.activeEntities.add(new Oop(j, i, Sprite.oop_right1.getFxImage()));
                         if (BombermanGame.level == 1) {
                             BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
@@ -120,8 +120,21 @@ public class Map {
                         BombermanGame.countenemy++;
                         break;
 
-                    case '3': // CA - MOVABLE ENTITY
+                    case '3': // CA - PORTABLE ENTITY
                         BombermanGame.activeEntities.add(new ComputerArchitecture(j, i, Sprite.ca_right1.getFxImage()));
+                        if (BombermanGame.level == 1) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                        } else if (BombermanGame.level == 2) {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass2.getFxImage()));
+                        } else {
+                            BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
+                        }
+                        BombermanGame.map[i][j] = ' ';
+                        BombermanGame.countenemy++;
+                        break;
+
+                    case '4': // BOSS_UET - PORTABLE ENTITY
+                        BombermanGame.activeEntities.add(new BOSS_UET(j, i, Sprite.oneal_right1.getFxImage()));
                         if (BombermanGame.level == 1) {
                             BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
                         } else if (BombermanGame.level == 2) {
@@ -143,7 +156,7 @@ public class Map {
                             BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
                         }
 
-                        // layer 1 - PowerUP
+                        // layer 1 - PowerUp
                         object = new PowerUpMoreBombs(j, i, Sprite.powerup_bombs.getFxImage());
                         BombermanGame.activeEntities.add((ActiveEntity) object);
 
@@ -162,7 +175,7 @@ public class Map {
                             BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
                         }
 
-                        // layer 1 - PowerUP
+                        // layer 1 - PowerUp
                         object = new PowerUpFlames(j, i, Sprite.powerup_flames.getFxImage());
                         BombermanGame.activeEntities.add((ActiveEntity) object);
 
@@ -181,7 +194,7 @@ public class Map {
                             BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass3.getFxImage()));
                         }
 
-                        // layer 1 - PowerUP
+                        // layer 1 - PowerUp
                         object = new PowerUpSpeed(j, i, Sprite.powerup_speed.getFxImage());
                         BombermanGame.activeEntities.add((ActiveEntity) object);
 

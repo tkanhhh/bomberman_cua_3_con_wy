@@ -266,7 +266,7 @@ public class BombermanGame extends Application {
 
     private void addOnePlayer() {
         bomberMode = 1;
-        Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage(), 0, "UP","DOWN","LEFT","RIGHT","ENTER");
+        Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage(), 0, "UP","DOWN","LEFT","RIGHT","SPACE");
         activeEntities.add(bomberman);
         countBomber = 1;
         gameState = "running";
@@ -316,7 +316,6 @@ public class BombermanGame extends Application {
             gameState = "levelup";
             return;
         }
-        System.out.println(KeyHandle.getKeys());
 
         for (int i = 0; i < activeEntities.size(); i++) {
             activeEntities.get(i).update();
