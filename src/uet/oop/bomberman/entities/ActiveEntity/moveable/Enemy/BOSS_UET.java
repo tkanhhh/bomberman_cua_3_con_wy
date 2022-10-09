@@ -6,17 +6,19 @@ import uet.oop.bomberman.AI.HardMode;
 import uet.oop.bomberman.graphics.Sprite;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.*;
+
 public class BOSS_UET extends Enemy {
 
     private int randomTimeInterval = 60;     // thời gian giữa mỗi lần random hướng
     Random random = new Random();
     ArrayList<Integer> arrayList = new ArrayList<>();
     int animation = 0;
+    int max = 3;
+    int min = 1;
 
     public BOSS_UET(int x, int y, Image img) {
         super(x, y, img);
-        this.speed = 2; // tốc độ cố định là 1
+        this.speed = 1; // tốc độ cố định là 1
         this.direction = 3;
         this.scoreValue = 20;
         arrayList.add(0);
@@ -62,7 +64,7 @@ public class BOSS_UET extends Enemy {
             if (animationTime < 0) {
                 delete = true; // Xoá
             }
-            // Animation ballom chết
+            // Animation boss chết
             if(animationTime>60) {
                 setImg(Sprite.oneal_dead.getFxImage());
             } else {
@@ -72,7 +74,8 @@ public class BOSS_UET extends Enemy {
 
             if(this.getY()%Sprite.SCALED_SIZE == 0 && this.getX()%Sprite.SCALED_SIZE == 0 && randomTimeInterval< 0) {
                 direction = HardMode.BFS(this.getEXSmallY(),this.getSmallX(), BombermanGame.map);
-                speed = random.nextInt(3);
+                speed = (int)Math.floor(Math.random()*(max-min+1)+min);
+                // speed = random.nextInt(3);
             } else {
                 randomTimeInterval--;
             }
