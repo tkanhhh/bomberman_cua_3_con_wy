@@ -11,7 +11,9 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import uet.oop.bomberman.entities.ActiveEntity.ActiveEntity;
 import uet.oop.bomberman.entities.ActiveEntity.moveable.Bomber;
+import uet.oop.bomberman.entities.ActiveEntity.moveable.Enemy.BOSS_UET;
 import uet.oop.bomberman.entities.Entity;
+import uet.oop.bomberman.entities.FixedEntity.Grass;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.utils.KeyHandle;
 import uet.oop.bomberman.utils.Map;
@@ -38,6 +40,7 @@ public class BombermanGame extends Application {
     public static int countBomber = 0;
     public static int gameoverTIMEDELAY = 120;
 
+    public boolean checkBoss = false;
     /**
      * char[][] contains index of brick, wall and bomber
      */
@@ -312,7 +315,15 @@ public class BombermanGame extends Application {
             gameState = "gameover";
             return;
         }
-        if(countenemy <= 0 && portalCheck) {
+        if(countenemy <= 0 && !checkBoss) {
+            BombermanGame.bombmap[5][15] = ' ';
+            BombermanGame.activeEntities.add(new BOSS_UET(15, 5, Sprite.oneal_right1.getFxImage()));
+            BombermanGame.countenemy++;
+            checkBoss = true;
+        }
+
+
+        if(countenemy <= 0 && checkBoss && portalCheck) {
             gameState = "levelup";
             return;
         }

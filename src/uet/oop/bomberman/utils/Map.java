@@ -144,6 +144,7 @@ public class Map {
                         }
                         BombermanGame.map[i][j] = ' ';
                         BombermanGame.countenemy++;
+                        System.out.println(i + " " + j);
                         break;
 
                     case 'b': // MORE BOMBS
