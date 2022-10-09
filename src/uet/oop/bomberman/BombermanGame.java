@@ -240,7 +240,6 @@ public class BombermanGame extends Application {
 
         // Start 2 players
         buttonPlayer2.setOnMouseClicked(event -> {
-
             resetGame();
             map = Map.ReadMap("res/levels/Level" + level + ".txt");
             Map.LoadMap();
@@ -288,9 +287,9 @@ public class BombermanGame extends Application {
         stillObjects.clear();
         score.clear();
         countbomb.clear();
-        countenemy=0;
+        countenemy = 0;
         map = new char[1][1]; //will be re assign later
-        bombmap = new char[1][1]; //will be re assign later
+        bombmap = new char[1][1]; //will be reassign later
         gameTime = 48800;
     }
 

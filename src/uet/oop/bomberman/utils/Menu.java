@@ -56,7 +56,8 @@ public class Menu {
         pane.getChildren().addAll(level, time, Player1, Player2, statusGame);
         pane.setMinSize(BombermanGame.WIDTH * Sprite.SCALED_SIZE, 64);
         pane.setMaxSize(2000, 2000);
-        pane.setStyle("-fx-background-color: #427235");
+        pane.setStyle("-fx-background-color: #2d65a2");
+
 
         root.getChildren().add(pane);
 
