@@ -36,7 +36,7 @@ public class BombermanGame extends Application {
     public static int maxLevel = 3;
     public static int countenemy = 0;
     public static int countBomber = 0;
-    public static int gameoverTIMEEDELAY = 120;
+    public static int gameoverTIMEDELAY = 120;
 
     /**
      * char[][] contains index of brick, wall and bomber
@@ -300,10 +300,10 @@ public class BombermanGame extends Application {
     public void update() {
         Menu.updateMenu();
         if (countBomber <= 0 ) {
-            gameoverTIMEEDELAY--;
-            if(gameoverTIMEEDELAY < 0) {
+            gameoverTIMEDELAY--;
+            if(gameoverTIMEDELAY < 0) {
                 gameState = "gameover";
-                gameoverTIMEEDELAY = 120;
+                gameoverTIMEDELAY = 120;
                 return;
             }
         }

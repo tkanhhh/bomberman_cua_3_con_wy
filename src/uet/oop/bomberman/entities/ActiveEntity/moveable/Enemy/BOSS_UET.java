@@ -26,29 +26,29 @@ public class BOSS_UET extends Enemy {
         arrayList.add(0);
         arrayList.add(0);
 
-        //CREATE BALLOOM ANIMATION
+        //CREATE BOSS ANIMATION
         createMoveUpAnimation(Sprite.oneal_left1,Sprite.oneal_left2,Sprite.oneal_left3);
         createMoveDownAnimation(Sprite.oneal_right1,Sprite.oneal_right2,Sprite.oneal_right3);
         createMoveLeftAnimation(Sprite.oneal_left1,Sprite.oneal_left2,Sprite.oneal_left3);
         createMoveRightAnimation(Sprite.oneal_right1,Sprite.oneal_right2,Sprite.oneal_right3);
     }
 
-    public void moveUP() {
+    public void moveUp() {
         this.setY(this.getY() - speed);
         this.setImg(Sprite.movingSprite(moveUpAnimation.get(0),moveUpAnimation.get(1),moveUpAnimation.get(2),animation, animationBetWeen).getFxImage());
     }
 
-    public void moveDOWN() {
+    public void moveDown() {
         this.setY(this.getY() + speed);
         this.setImg(Sprite.movingSprite(moveDownAnimation.get(0),moveDownAnimation.get(1),moveDownAnimation.get(2),animation, animationBetWeen).getFxImage());
     }
 
-    public void moveLEFT() {
+    public void moveLeft() {
         this.setX(this.getX() - speed);
         this.setImg(Sprite.movingSprite(moveLeftAnimation.get(0),moveLeftAnimation.get(1),moveLeftAnimation.get(2),animation, animationBetWeen).getFxImage());
     }
 
-    public void moveRIGHT() {
+    public void moveRight() {
         this.setX(this.getX() + speed);
         this.setImg(Sprite.movingSprite(moveRightAnimation.get(0),moveRightAnimation.get(1),moveRightAnimation.get(2),animation, animationBetWeen).getFxImage());
     }
@@ -84,25 +84,25 @@ public class BOSS_UET extends Enemy {
 
             if (direction == 0) {
                 if (BombermanGame.map[getEXSmallY()][getEXSmallX()] == ' ' && BombermanGame.bombmap[getEXSmallY()][getEXSmallX()] == ' '){
-                    moveUP();
+                    moveUp();
                 }
             }
 
             if (direction == 1) {
                 if (BombermanGame.map[getEXSmallY()+1][getEXSmallX()] == ' ' && BombermanGame.bombmap[getEXSmallY()+1][getEXSmallX()] == ' '){
-                    moveDOWN();
+                    moveDown();
                 }
             }
 
             if (direction == 2) {
                 if (BombermanGame.map[getEXSmallY()][getEXSmallX()] == ' ' && BombermanGame.bombmap[getEXSmallY()][getEXSmallX()] == ' '){
-                    moveLEFT();
+                    moveLeft();
                 }
             }
 
             if (direction == 3) {
                 if (BombermanGame.map[getEXSmallY()][getEXSmallX()+1] == ' ' && BombermanGame.bombmap[getEXSmallY()][getEXSmallX()+1] == ' '){
-                    moveRIGHT();
+                    moveRight();
                 }
             }
 
