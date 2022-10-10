@@ -39,7 +39,7 @@ public class BombermanGame extends Application {
     public static int countenemy = 0;
     public static int countBomber = 0;
 
-    public static int bossLife = 3;
+    public static int bossLife = 2;
 
     public static boolean checkBoss = false; //check if boss has been rendered more than 1 times or not
 
@@ -324,7 +324,7 @@ public class BombermanGame extends Application {
         }
         if (countenemy <= 0 && bossLife > 0) {
             Menu.boss.setVisible(true);
-            if (timeAfterExplode == 0) {
+            if (timeAfterExplode == 0 && bossLife > 1) {
                 if (checkBoss) bossLife--;
                 checkBoss = true;
                 boss = new BOSS_UET(boss.getX_dead(), boss.getY_dead(), Sprite.oneal_right1.getFxImage());
@@ -333,12 +333,14 @@ public class BombermanGame extends Application {
                 BombermanGame.countenemy++;
                 timeAfterExplode = 100;
             }
+            if (bossLife == 1) bossLife--;
             timeAfterExplode--;
         }
 
         if (countenemy <= 0 && portalCheck && bossLife == 0) {
             gameState = "levelup";
             bossLife = 3;
+            boss = new BOSS_UET(15, 5, Sprite.oneal_right1.getFxImage());
             return;
         }
 
