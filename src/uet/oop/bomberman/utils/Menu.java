@@ -13,7 +13,7 @@ import uet.oop.bomberman.graphics.Sprite;
 
 public class Menu {
     private static ImageView statusGame;
-    public static Text level, bomb, time;
+    public static Text level, bomb, time, boss;
     public static int bombNumber = 50;
     public static Text Player1, Player2;
 
@@ -43,6 +43,12 @@ public class Menu {
         Player2.setX(1000);
         Player2.setY(32);
 
+        boss = new Text("Boss life:");
+        boss.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        boss.setFill(Color.WHITE);
+        boss.setX(1300);
+        boss.setY(32);
+
 
         Image newGame = new Image("images/pause.png");
         Image playGame = new Image("images/resume.png");
@@ -53,7 +59,7 @@ public class Menu {
         statusGame.setFitWidth(48);
 
         Pane pane = new Pane();
-        pane.getChildren().addAll(level, time, Player1, Player2, statusGame);
+        pane.getChildren().addAll(level, time, boss, Player1, Player2, statusGame);
         pane.setMinSize(BombermanGame.WIDTH * Sprite.SCALED_SIZE, 64);
         pane.setMaxSize(2000, 2000);
         pane.setStyle("-fx-background-color: #2d65a2");
@@ -79,5 +85,6 @@ public class Menu {
         time.setText("Time: " + BombermanGame.gameTime-- / 60);
         Player1.setText("Player 1: " + BombermanGame.score.get(0));
         Player2.setText("Player 2: " + BombermanGame.score.get(1));
+        boss.setText("Boss life: " + BombermanGame.bossLife);
     }
 }

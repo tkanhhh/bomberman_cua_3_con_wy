@@ -38,9 +38,13 @@ public class BombermanGame extends Application {
     public static int maxLevel = 3;
     public static int countenemy = 0;
     public static int countBomber = 0;
+
+    public static int bossLife = 3;
+
+    public static boolean checkBoss = false; //check if boss has been rendered more than 1 times or not
+
     public static int gameoverTIMEDELAY = 120;
 
-    public boolean checkBoss = false;
     /**
      * char[][] contains index of brick, wall and bomber
      */
@@ -234,6 +238,7 @@ public class BombermanGame extends Application {
         // Start 1 player
         buttonPlayer1.setOnMouseClicked(event -> {
             Menu.Player2.setVisible(false);
+            Menu.boss.setVisible(false);
             resetGame();
             map = Map.ReadMap("res/levels/Level" + level + ".txt");
             Map.LoadMap();
@@ -243,6 +248,7 @@ public class BombermanGame extends Application {
 
         // Start 2 players
         buttonPlayer2.setOnMouseClicked(event -> {
+            Menu.boss.setVisible(false);
             resetGame();
             map = Map.ReadMap("res/levels/Level" + level + ".txt");
             Map.LoadMap();
@@ -269,7 +275,7 @@ public class BombermanGame extends Application {
 
     private void addOnePlayer() {
         bomberMode = 1;
-        Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage(), 0, "UP","DOWN","LEFT","RIGHT","SPACE");
+        Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage(), 0, "UP","DOWN","LEFT","RIGHT","ENTER");
         activeEntities.add(bomberman);
         countBomber = 1;
         gameState = "running";
@@ -278,7 +284,7 @@ public class BombermanGame extends Application {
     private void addTwoPlayer() {
         bomberMode = 2;
         Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage(), 0, "UP","DOWN","LEFT","RIGHT","ENTER");
-        Bomber bomberman2 = new Bomber(1, 11, Sprite.player_right.getFxImage(), 1, "W","S","A","D","TAB");
+        Bomber bomberman2 = new Bomber(1, 11, Sprite.player_right.getFxImage(), 1, "W","S","A","D","SPACE");
         activeEntities.add(bomberman);
         activeEntities.add(bomberman2);
         countBomber = 2;
@@ -296,7 +302,8 @@ public class BombermanGame extends Application {
         gameTime = 48800;
     }
 
-
+    public static int timeAfterExplode = 120;
+    BOSS_UET boss = new BOSS_UET(15, 5, Sprite.oneal_right1.getFxImage());
     /**
      * update menu
      */
@@ -315,16 +322,23 @@ public class BombermanGame extends Application {
             gameState = "gameover";
             return;
         }
-        if(countenemy <= 0 && !checkBoss) {
-            BombermanGame.bombmap[5][15] = ' ';
-            BombermanGame.activeEntities.add(new BOSS_UET(15, 5, Sprite.oneal_right1.getFxImage()));
-            BombermanGame.countenemy++;
-            checkBoss = true;
+        if (countenemy <= 0 && bossLife > 0) {
+            Menu.boss.setVisible(true);
+            if (timeAfterExplode == 0) {
+                if (checkBoss) bossLife--;
+                checkBoss = true;
+                boss = new BOSS_UET(boss.getX_dead(), boss.getY_dead(), Sprite.oneal_right1.getFxImage());
+                BombermanGame.bombmap[boss.getY_dead()][boss.getX_dead()] = ' ';
+                BombermanGame.activeEntities.add(boss);
+                BombermanGame.countenemy++;
+                timeAfterExplode = 100;
+            }
+            timeAfterExplode--;
         }
 
-
-        if(countenemy <= 0 && checkBoss && portalCheck) {
+        if (countenemy <= 0 && portalCheck && bossLife == 0) {
             gameState = "levelup";
+            bossLife = 3;
             return;
         }
 
@@ -353,7 +367,7 @@ public class BombermanGame extends Application {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         stillObjects.forEach(g -> g.render(gc));
         for (int i = 0; i < activeEntities.size(); i++) {
-            if(activeEntities.get(i).show){
+            if (activeEntities.get(i).show){
                 activeEntities.get(i).render(gc);
             }
         }

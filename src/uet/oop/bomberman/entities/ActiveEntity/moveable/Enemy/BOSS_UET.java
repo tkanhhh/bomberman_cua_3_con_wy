@@ -3,6 +3,8 @@ package uet.oop.bomberman.entities.ActiveEntity.moveable.Enemy;
 import javafx.scene.image.Image;
 import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.AI.HardMode;
+import uet.oop.bomberman.entities.ActiveEntity.ActiveEntity;
+import uet.oop.bomberman.entities.ActiveEntity.moveable.Bomber;
 import uet.oop.bomberman.graphics.Sprite;
 import java.util.ArrayList;
 import java.util.Random;
@@ -15,6 +17,9 @@ public class BOSS_UET extends Enemy {
     int animation = 0;
     int max = 3;
     int min = 1;
+
+    private int x_dead = 15;
+    private int y_dead = 5;
 
     public BOSS_UET(int x, int y, Image img) {
         super(x, y, img);
@@ -53,19 +58,34 @@ public class BOSS_UET extends Enemy {
         this.setImg(Sprite.movingSprite(moveRightAnimation.get(0),moveRightAnimation.get(1),moveRightAnimation.get(2),animation, animationBetWeen).getFxImage());
     }
 
+    public int getX_dead() {
+        if (isDead) {
+            x_dead = (this.getX() + (Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
+        }
+        return x_dead;
+    }
+
+    public int getY_dead() {
+        if (isDead) {
+            y_dead = (this.getY() + (Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
+        }
+        return y_dead;
+    }
+
     @Override
     public void update() {
         animation++;
-        if(animation > 100) {
+        if (animation > 100) {
             animation=0;
         }
+
         if (isDead) {
             animationTime--;
             if (animationTime < 0) {
                 delete = true; // Xoá
             }
             // Animation when boss dies
-            if(animationTime>60) {
+            if (animationTime > 60) {
                 setImg(Sprite.oneal_dead.getFxImage());
             } else {
                 setImg(Sprite.movingSprite(Sprite.mob_dead1,Sprite.mob_dead2,Sprite.mob_dead3,animationTime,20).getFxImage());
@@ -74,7 +94,7 @@ public class BOSS_UET extends Enemy {
 
             if(this.getY()%Sprite.SCALED_SIZE == 0 && this.getX()%Sprite.SCALED_SIZE == 0 && randomTimeInterval< 0) {
                 direction = HardMode.BFS(this.getEXSmallY(),this.getSmallX(), BombermanGame.map);
-                speed = (int)Math.floor(Math.random()*(max-min+1)+min);
+                speed = (int)Math.floor(Math.random() * (max - min + 1) + min);
             } else {
                 randomTimeInterval--;
             }
