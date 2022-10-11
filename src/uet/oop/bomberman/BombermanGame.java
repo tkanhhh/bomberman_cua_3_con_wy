@@ -76,6 +76,7 @@ public class BombermanGame extends Application {
     public static boolean portalCheck = false;
     ImageView buttonPlayer1;
     ImageView buttonPlayer2;
+    ImageView buttonExit;
     ImageView startscreenView;
 
 
@@ -125,19 +126,26 @@ public class BombermanGame extends Application {
 
         Image player1 = new Image("images/button1.png");
         Image player2 = new Image("images/button2.png");
+        Image exit = new Image("images/exit.png");
 
         buttonPlayer1 = new ImageView(player1);
-        buttonPlayer1.setLayoutX(355);
+        buttonPlayer1.setLayoutX(380);
         buttonPlayer1.setLayoutY(330);
         buttonPlayer1.setFitHeight(64);
-        buttonPlayer1.setFitWidth(384);
+        buttonPlayer1.setFitWidth(290);
 
 
         buttonPlayer2 = new ImageView(player2);
-        buttonPlayer2.setLayoutX(351);
+        buttonPlayer2.setLayoutX(380);
         buttonPlayer2.setLayoutY(430);
-        buttonPlayer2.setFitHeight(60);
-        buttonPlayer2.setFitWidth(380);
+        buttonPlayer2.setFitHeight(64);
+        buttonPlayer2.setFitWidth(290);
+
+        buttonExit = new ImageView(exit);
+        buttonExit.setLayoutX(380);
+        buttonExit.setLayoutY(530);
+        buttonExit.setFitHeight(64);
+        buttonExit.setFitWidth(290);
 
 
         //=================================================
@@ -156,6 +164,7 @@ public class BombermanGame extends Application {
         root.getChildren().add(congratView);
         root.getChildren().add(buttonPlayer1);
         root.getChildren().add(buttonPlayer2);
+        root.getChildren().add(buttonExit);
         //==========================================
 
         canvas.setTranslateY(48);
@@ -274,6 +283,10 @@ public class BombermanGame extends Application {
             addTwoPlayer();
             hideStart();
         });
+
+        buttonExit.setOnMouseClicked(mouseEvent -> {
+            System.exit(0);
+        });
     }
 
     private void hideStart() {
@@ -282,14 +295,18 @@ public class BombermanGame extends Application {
         buttonPlayer1.setVisible(false);
         buttonPlayer2.setVisible(false);
         buttonPlayer2.setDisable(true);
+        buttonExit.setVisible(false);
+        buttonExit.setDisable(true);
     }
 
     private void showStart() {
         startscreenView.setVisible(true);
         buttonPlayer1.setVisible(true);
         buttonPlayer2.setVisible(true);
+        buttonExit.setVisible(true);
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(false);
+        buttonExit.setDisable(false);
     }
 
     private void addOnePlayer() {
