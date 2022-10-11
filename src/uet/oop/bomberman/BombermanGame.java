@@ -93,10 +93,12 @@ public class BombermanGame extends Application {
         Image startscreen = new Image("images/author.png");
         Image levelUpScreen = new Image("images/levelup.png");
         Image gameover = new Image("images/gameover.png");
+        Image congrat = new Image("images/congrat.png");
 
         startscreenView = new ImageView(startscreen);
         ImageView levelUpView = new ImageView(levelUpScreen);
         ImageView gameoverView = new ImageView(gameover);
+        ImageView congratView = new ImageView(congrat);
 
         startscreenView.setX(0);
         startscreenView.setY(0);
@@ -114,6 +116,12 @@ public class BombermanGame extends Application {
         gameoverView.setScaleX(1);
         gameoverView.setScaleY(1);
         gameoverView.setVisible(false);
+
+        congratView.setX(0);
+        congratView.setY(0);
+        congratView.setScaleX(1);
+        congratView.setScaleY(1);
+        congratView.setVisible(false);
 
         Image player1 = new Image("images/button1.png");
         Image player2 = new Image("images/button2.png");
@@ -145,6 +153,7 @@ public class BombermanGame extends Application {
         root.getChildren().add(startscreenView);
         root.getChildren().add(levelUpView);
         root.getChildren().add(gameoverView);
+        root.getChildren().add(congratView);
         root.getChildren().add(buttonPlayer1);
         root.getChildren().add(buttonPlayer2);
         //==========================================
@@ -182,10 +191,6 @@ public class BombermanGame extends Application {
                     update();
                 }
 
-                if (gameState.equals("pause")) {
-                    render();
-                }
-
                 if (gameState.equals("gameover")) {
                     if (gameoverTimer > 0) { // count delay time after game over, 5 s
                         gameoverTimer--;
@@ -205,7 +210,7 @@ public class BombermanGame extends Application {
                 if (gameState.equals("levelup")) {
                     if (level == maxLevel) {
                         levelUpView.setVisible(false);
-                        gameState = "gameover";
+                        gameState = "congrat";
                         gameoverTimer = 300;
                         return;
                     }
@@ -230,7 +235,21 @@ public class BombermanGame extends Application {
                     }
                 }
 
-
+                if (gameState.equals("congrat")) {
+                    if (gameoverTimer > 0) { // count delay time after game over, 5 s
+                        gameoverTimer--;
+                        congratView.setVisible(true);
+                    } else { // reset game
+                        level = 1;
+                        resetGame();
+                        map = Map.ReadMap("res/levels/Level" + level + ".txt");
+                        Map.LoadMap();
+                        congratView.setVisible(false);
+                        gameoverTimer = 300;    // set time delay if game over
+                        gameState = "startmenu";
+                        return;
+                    }
+                }
             }
         };
         timer.start();

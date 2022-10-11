@@ -13,7 +13,7 @@ import uet.oop.bomberman.graphics.Sprite;
 
 public class Menu {
     private static ImageView statusGame;
-    public static Text level, bomb, time, boss;
+    public static Text level, time, boss;
     public static int bombNumber = 50;
     public static Text Player1, Player2;
 
@@ -70,11 +70,8 @@ public class Menu {
         statusGame.setOnMouseClicked(event -> {
             System.out.println("CLICKED");
             if (BombermanGame.gameState.equals("running")) {
-                BombermanGame.gameState = "pause";
+                BombermanGame.gameState = "startmenu";
                 statusGame.setImage(newGame);
-            } else {
-                BombermanGame.gameState = "running";
-                statusGame.setImage(playGame);
             }
         });
 
