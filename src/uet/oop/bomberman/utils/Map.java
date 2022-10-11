@@ -37,6 +37,16 @@ public class Map {
                 for (int j = 0; j < width; j++)
                     map[i][j] = line.charAt(j);
             }
+            while (true) {
+                int tmp1 = (int)Math.floor(Math.random() * (height));
+                int tmp2 = (int)Math.floor(Math.random() * (width));
+
+                if (map[tmp1][tmp2] == ' ' && tmp1 != 5 && tmp2 != 15) {
+                    map[tmp1][tmp2] = 'x';
+                    break;
+                }
+            }
+
             sc.close();
             file.close();
         } catch (Exception e) {
