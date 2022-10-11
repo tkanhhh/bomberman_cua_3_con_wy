@@ -90,7 +90,7 @@ public class BombermanGame extends Application {
         gc = canvas.getGraphicsContext2D();
 
         //=======================START - LEVELUP - GAME OVER SCREEN====================
-        Image startscreen = new Image("images/author1.png");
+        Image startscreen = new Image("images/author.png");
         Image levelUpScreen = new Image("images/levelup.png");
         Image gameover = new Image("images/gameover.png");
 
@@ -119,14 +119,14 @@ public class BombermanGame extends Application {
         Image player2 = new Image("images/button2.png");
 
         buttonPlayer1 = new ImageView(player1);
-        buttonPlayer1.setLayoutX(560);
+        buttonPlayer1.setLayoutX(355);
         buttonPlayer1.setLayoutY(330);
         buttonPlayer1.setFitHeight(64);
         buttonPlayer1.setFitWidth(384);
 
 
         buttonPlayer2 = new ImageView(player2);
-        buttonPlayer2.setLayoutX(556);
+        buttonPlayer2.setLayoutX(351);
         buttonPlayer2.setLayoutY(430);
         buttonPlayer2.setFitHeight(60);
         buttonPlayer2.setFitWidth(380);
@@ -318,28 +318,27 @@ public class BombermanGame extends Application {
             }
         }
 
-        if(gameTime < 0) {
+        if (gameTime < 0) {
             gameState = "gameover";
             return;
         }
         if (countenemy <= 0 && bossLife > 0) {
-            Menu.boss.setVisible(true);
-            if (timeAfterExplode == 0 && bossLife > 1) {
-                if (checkBoss) bossLife--;
-                checkBoss = true;
-                boss = new BOSS_UET(boss.getX_dead(), boss.getY_dead(), Sprite.oneal_right1.getFxImage());
-                BombermanGame.bombmap[boss.getY_dead()][boss.getX_dead()] = ' ';
-                BombermanGame.activeEntities.add(boss);
-                BombermanGame.countenemy++;
-                timeAfterExplode = 100;
+            if (timeAfterExplode == 0) {
+                    Menu.boss.setVisible(true);
+                    bossLife--;
+                    checkBoss = true;
+                    boss = new BOSS_UET(boss.getX_dead(), boss.getY_dead(), Sprite.oneal_right1.getFxImage());
+                    BombermanGame.bombmap[boss.getY_dead()][boss.getX_dead()] = ' ';
+                    BombermanGame.activeEntities.add(boss);
+                    BombermanGame.countenemy++;
+                    timeAfterExplode = 100;
             }
-            if (bossLife == 1) bossLife--;
             timeAfterExplode--;
         }
 
         if (countenemy <= 0 && portalCheck && bossLife == 0) {
             gameState = "levelup";
-            bossLife = 3;
+            bossLife = 2;
             boss = new BOSS_UET(15, 5, Sprite.oneal_right1.getFxImage());
             return;
         }

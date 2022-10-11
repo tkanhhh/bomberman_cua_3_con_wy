@@ -85,6 +85,6 @@ public class Menu {
         time.setText("Time: " + BombermanGame.gameTime-- / 60);
         Player1.setText("Player 1: " + BombermanGame.score.get(0));
         Player2.setText("Player 2: " + BombermanGame.score.get(1));
-        boss.setText("Boss life: " + BombermanGame.bossLife);
+        boss.setText("Boss resurrection: " + BombermanGame.bossLife);
     }
 }
