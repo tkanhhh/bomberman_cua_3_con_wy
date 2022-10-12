@@ -442,8 +442,6 @@ public class BombermanGame extends Application {
     }
 
 
-
-
     /**
      * Render
      */
