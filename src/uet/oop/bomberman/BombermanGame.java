@@ -274,6 +274,22 @@ public class BombermanGame extends Application {
             hideStart();
         });
 
+        //1 player button will be smaller if mouse point at
+        buttonPlayer1.setOnMouseEntered(mouseEvent -> {
+            buttonPlayer1.setLayoutX(380);
+            buttonPlayer1.setLayoutY(330);
+            buttonPlayer1.setFitHeight(50);
+            buttonPlayer1.setFitWidth(276);
+        });
+
+        // 1 player button back to normal
+        buttonPlayer1.setOnMouseExited(mouseEvent -> {
+            buttonPlayer1.setLayoutX(380);
+            buttonPlayer1.setLayoutY(330);
+            buttonPlayer1.setFitHeight(64);
+            buttonPlayer1.setFitWidth(290);
+        });
+
         // Start 2 players
         buttonPlayer2.setOnMouseClicked(event -> {
             Menu.boss.setVisible(false);
@@ -284,8 +300,38 @@ public class BombermanGame extends Application {
             hideStart();
         });
 
+        // 2 player button will be smaller if mouse point at
+        buttonPlayer2.setOnMouseEntered(mouseEvent -> {
+            buttonPlayer2.setLayoutX(380);
+            buttonPlayer2.setLayoutY(430);
+            buttonPlayer2.setFitHeight(50);
+            buttonPlayer2.setFitWidth(276);
+        });
+
+        // 2 player button back to normal
+        buttonPlayer2.setOnMouseExited(mouseEvent -> {
+            buttonPlayer2.setLayoutX(380);
+            buttonPlayer2.setLayoutY(430);
+            buttonPlayer2.setFitHeight(64);
+            buttonPlayer2.setFitWidth(290);
+        });
+
         buttonExit.setOnMouseClicked(mouseEvent -> {
             System.exit(0);
+        });
+
+        buttonExit.setOnMouseEntered(mouseEvent -> {
+            buttonExit.setLayoutX(380);
+            buttonExit.setLayoutY(530);
+            buttonExit.setFitHeight(50);
+            buttonExit.setFitWidth(276);
+        });
+
+        buttonExit.setOnMouseExited(mouseEvent -> {
+            buttonExit.setLayoutX(380);
+            buttonExit.setLayoutY(530);
+            buttonExit.setFitHeight(64);
+            buttonExit.setFitWidth(290);
         });
     }
 
@@ -374,6 +420,7 @@ public class BombermanGame extends Application {
 
         if (countenemy <= 0 && portalCheck && bossLife == 0) {
             gameState = "levelup";
+            Menu.boss.setVisible(false);
             bossLife = 2;
             boss = new BOSS_UET(15, 5, Sprite.oneal_right1.getFxImage());
             return;

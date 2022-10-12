@@ -71,6 +71,7 @@ public class Menu {
             System.out.println("CLICKED");
             if (BombermanGame.gameState.equals("running")) {
                 BombermanGame.gameState = "startmenu";
+                BombermanGame.level = 1;
                 statusGame.setImage(newGame);
             }
         });
