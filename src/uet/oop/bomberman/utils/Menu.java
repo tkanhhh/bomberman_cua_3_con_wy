@@ -50,7 +50,7 @@ public class Menu {
         boss.setY(32);
 
 
-        Image newGame = new Image("images/pause.png");
+        Image newGame = new Image("images/back.png");
         statusGame = new ImageView(newGame);
         statusGame.setX(32);
         statusGame.setY(0);

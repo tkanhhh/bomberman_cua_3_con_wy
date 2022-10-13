@@ -13,9 +13,9 @@ public class Sound {
     public static Clip bomb_explosion;
     public static Clip just_died;
 
-    public static boolean isSoundDied;
+    //public static boolean isSoundDied;
     public static boolean isSoundTitle;
-    private static boolean isSoundComplete;
+    //private static boolean isSoundComplete;
 
     public Sound(String name, String sound) {
         try {
