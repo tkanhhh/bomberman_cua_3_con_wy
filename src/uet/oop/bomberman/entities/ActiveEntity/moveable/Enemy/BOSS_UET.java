@@ -19,7 +19,7 @@ public class BOSS_UET extends Enemy {
     int min = 1;
 
     private int x_dead = 15;
-    private int y_dead = 5;
+    private int y_dead = 7;
 
     public BOSS_UET(int x, int y, Image img) {
         super(x, y, img);

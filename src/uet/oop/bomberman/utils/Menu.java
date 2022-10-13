@@ -51,7 +51,6 @@ public class Menu {
 
 
         Image newGame = new Image("images/pause.png");
-        Image playGame = new Image("images/resume.png");
         statusGame = new ImageView(newGame);
         statusGame.setX(32);
         statusGame.setY(0);

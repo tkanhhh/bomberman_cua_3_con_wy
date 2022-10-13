@@ -379,13 +379,14 @@ public class BombermanGame extends Application {
         score.clear();
         countbomb.clear();
         countenemy = 0;
+        bossLife = 2;
         map = new char[1][1]; //will be re assign later
         bombmap = new char[1][1]; //will be reassign later
         gameTime = 48800;
     }
 
     public static int timeAfterExplode = 120;
-    BOSS_UET boss = new BOSS_UET(15, 5, Sprite.oneal_right1.getFxImage());
+    BOSS_UET boss = new BOSS_UET(15, 7, Sprite.oneal_right1.getFxImage());
     /**
      * update menu
      */
@@ -422,7 +423,7 @@ public class BombermanGame extends Application {
             gameState = "levelup";
             Menu.boss.setVisible(false);
             bossLife = 2;
-            boss = new BOSS_UET(15, 5, Sprite.oneal_right1.getFxImage());
+            boss = new BOSS_UET(15, 6, Sprite.oneal_right1.getFxImage());
             return;
         }
 

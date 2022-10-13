@@ -17,6 +17,9 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Map {
+    public static int Dsa_num = 0;
+    public static int Oop_num = 0;
+    public static int Ca_num = 0;
     // Đọc map
     public static char[][] ReadMap(String map_file) {
         char[][] map = new char[BombermanGame.HEIGHT][BombermanGame.WIDTH];
@@ -37,13 +40,121 @@ public class Map {
                 for (int j = 0; j < width; j++)
                     map[i][j] = line.charAt(j);
             }
+
+            //Random portal
             while (true) {
                 int tmp1 = (int)Math.floor(Math.random() * (height));
                 int tmp2 = (int)Math.floor(Math.random() * (width));
 
-                if (map[tmp1][tmp2] == ' ' && tmp1 != 5 && tmp2 != 15) {
+                if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 2 && tmp2 <= 2) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
                     map[tmp1][tmp2] = 'x';
                     break;
+                }
+            }
+
+            //Random speed item
+            while (true) {
+                int tmp1 = (int)Math.floor(Math.random() * (height));
+                int tmp2 = (int)Math.floor(Math.random() * (width));
+
+                if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 2 && tmp2 <= 2) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
+                    map[tmp1][tmp2] = 's';
+                    break;
+                }
+            }
+
+            //Random flame item
+            while (true) {
+                int tmp1 = (int)Math.floor(Math.random() * (height));
+                int tmp2 = (int)Math.floor(Math.random() * (width));
+
+                if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 2 && tmp2 <= 2) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
+                    map[tmp1][tmp2] = 'f';
+                    break;
+                }
+            }
+
+            //Random bomb item
+            while (true) {
+                int tmp1 = (int)Math.floor(Math.random() * (height));
+                int tmp2 = (int)Math.floor(Math.random() * (width));
+
+                if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 2 && tmp2 <= 2) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
+                    map[tmp1][tmp2] = 'b';
+                    break;
+                }
+            }
+
+            //Random brick
+            for (int i = 0; i < 50; i++) {
+                while (true) {
+                    int tmp1 = (int)Math.floor(Math.random() * (height - 1 - 1 + 1) + 1);
+                    int tmp2 = (int)Math.floor(Math.random() * (width - 1 - 1 + 1) + 1);
+
+                    if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 2 && tmp2 <= 2) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
+                        map[tmp1][tmp2] = '*';
+                        break;
+                    }
+                }
+            }
+
+            // Number of enemies each level
+            if (BombermanGame.level == 1) {
+                Dsa_num = 1;
+                Oop_num = 1;
+                Ca_num = 0;
+            } else if (BombermanGame.level == 2) {
+                Dsa_num = 0;
+                Oop_num = 1;
+                Ca_num = 2;
+            } else {
+                Dsa_num = 1;
+                Oop_num = 1;
+                Ca_num = 2;
+            }
+
+            //Random dsa
+            for (int i = 0; i < Dsa_num; i++) {
+                while (true) {
+                    int tmp1 = (int)Math.floor(Math.random() * (height - 1 - 1 + 1) + 1);
+                    int tmp2 = (int)Math.floor(Math.random() * (width - 1 - 1 + 1) + 1);
+
+                    if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 4 && tmp2 <= 4) && !(tmp1 >= height - 4 && tmp2 >= width - 4)) {
+                        if (!((map[tmp1 - 1][tmp2] != ' ') && (map[tmp1][tmp2 - 1] != ' ') && (map[tmp1 + 1][tmp2] != ' ') && (map[tmp1][tmp2 + 1] != ' '))) {
+                            map[tmp1][tmp2] = '1';
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //Random oop
+            for (int i = 0; i < Oop_num; i++) {
+                while (true) {
+                    int tmp1 = (int)Math.floor(Math.random() * (height - 1 - 1 + 1) + 1);
+                    int tmp2 = (int)Math.floor(Math.random() * (width - 1 - 1 + 1) + 1);
+
+                    if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 4 && tmp2 <= 4) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
+                        if (!((map[tmp1 - 1][tmp2] != ' ') && (map[tmp1][tmp2 - 1] != ' ') && (map[tmp1 + 1][tmp2] != ' ') && (map[tmp1][tmp2 + 1] != ' '))) {
+                            map[tmp1][tmp2] = '2';
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //Random CA
+            for (int i = 0; i < Ca_num; i++) {
+                while (true) {
+                    int tmp1 = (int)Math.floor(Math.random() * (height - 1 - 1 + 1) + 1);
+                    int tmp2 = (int)Math.floor(Math.random() * (width - 1 - 1 + 1) + 1);
+
+                    if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 4 && tmp2 <= 4) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
+                        if (!((map[tmp1 - 1][tmp2] != ' ') && (map[tmp1][tmp2 - 1] != ' ') && (map[tmp1 + 1][tmp2] != ' ') && (map[tmp1][tmp2 + 1] != ' '))) {
+                            map[tmp1][tmp2] = '3';
+                            break;
+                        }
+                    }
                 }
             }
 
