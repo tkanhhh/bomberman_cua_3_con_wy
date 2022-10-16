@@ -359,6 +359,10 @@ public class BombermanGame extends Application {
     private void addOnePlayer() {
         bomberMode = 1;
         Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage(), 0, "UP","DOWN","LEFT","RIGHT","ENTER");
+        int ran = (int) Math.floor(Math.random() * (1 + 1));
+        if (ran == 1) {
+            bomberman = new Bomber(1, 1, Sprite.player2_right.getFxImage(), 1, "UP","DOWN","LEFT","RIGHT","ENTER");
+        }
         activeEntities.add(bomberman);
         countBomber = 1;
         gameState = "running";
@@ -367,7 +371,7 @@ public class BombermanGame extends Application {
     private void addTwoPlayer() {
         bomberMode = 2;
         Bomber bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage(), 0, "UP","DOWN","LEFT","RIGHT","ENTER");
-        Bomber bomberman2 = new Bomber(1, 11, Sprite.player_right.getFxImage(), 1, "W","S","A","D","SPACE");
+        Bomber bomberman2 = new Bomber(1, 11, Sprite.player2_right.getFxImage(), 1, "W","S","A","D","SPACE");
         activeEntities.add(bomberman);
         activeEntities.add(bomberman2);
         countBomber = 2;

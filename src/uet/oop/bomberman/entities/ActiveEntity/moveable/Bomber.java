@@ -51,11 +51,18 @@ public class Bomber extends PortableEntity {
         BombermanGame.countbomb.put(bomberid,0);
         BombermanGame.score.put(bomberid,0);
 
-        //Create bomber animation
-        createMoveUpAnimation(Sprite.player_up,Sprite.player_up_1,Sprite.player_up_2);
-        createMoveDownAnimation(Sprite.player_down,Sprite.player_down_1,Sprite.player_down_2);
-        createMoveLeftAnimation(Sprite.player_left,Sprite.player_left_1,Sprite.player_left_2);
-        createMoveRightAnimation(Sprite.player_right,Sprite.player_right_1,Sprite.player_right_2);
+        if (bomberid == 0) {
+            //Create bomber animation
+            createMoveUpAnimation(Sprite.player_up, Sprite.player_up_1, Sprite.player_up_2);
+            createMoveDownAnimation(Sprite.player_down, Sprite.player_down_1, Sprite.player_down_2);
+            createMoveLeftAnimation(Sprite.player_left, Sprite.player_left_1, Sprite.player_left_2);
+            createMoveRightAnimation(Sprite.player_right, Sprite.player_right_1, Sprite.player_right_2);
+        } else {
+            createMoveUpAnimation(Sprite.player2_up, Sprite.player2_up_1, Sprite.player2_up_2);
+            createMoveDownAnimation(Sprite.player2_down, Sprite.player2_down_1, Sprite.player2_down_2);
+            createMoveLeftAnimation(Sprite.player2_left, Sprite.player2_left_1, Sprite.player2_left_2);
+            createMoveRightAnimation(Sprite.player2_right, Sprite.player2_right_1, Sprite.player2_right_2);
+        }
 
         //BIND KEY
         this.keyUP = keyUP;
@@ -132,7 +139,11 @@ public class Bomber extends PortableEntity {
                 delete = true;
             }
             // Animation when bomber dies
-            setImg(Sprite.movingSprite(Sprite.player_dead1, Sprite.player_dead2, Sprite.player_dead3, animationTime, 30).getFxImage());
+            if (bomberID == 0) {
+                setImg(Sprite.movingSprite(Sprite.player_dead1, Sprite.player_dead2, Sprite.player_dead3, animationTime, 30).getFxImage());
+            } else {
+                setImg(Sprite.movingSprite(Sprite.player2_dead1, Sprite.player2_dead2, Sprite.player2_dead3, animationTime, 30).getFxImage());
+            }
         } else {
             if (KeyHandle.getKeys().contains(keyUP)) {
                 moveUp();
