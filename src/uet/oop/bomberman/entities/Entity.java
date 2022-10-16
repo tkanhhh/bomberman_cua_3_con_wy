@@ -49,12 +49,12 @@ public abstract class Entity {
 
     //Từ toạ độ x trên canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
     public int getSmallX() {
-        return (x+(Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
+        return (x + (Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
     }
 
     //Từ toạ độ y canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
     public int getSmallY(){
-        return (y+(Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
+        return (y + (Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
     }
 
     public int getEXSmallX() {

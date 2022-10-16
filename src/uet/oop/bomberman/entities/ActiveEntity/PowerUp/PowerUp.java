@@ -11,7 +11,7 @@ import uet.oop.bomberman.utils.Sound;
 public abstract class PowerUp extends ActiveEntity {
 
     protected boolean active;
-    protected int timeAfter = 20;
+    protected int timeAfter = 10;
     private boolean playedS = false; // play sound
 
     public PowerUp(int x, int y, Image img) {

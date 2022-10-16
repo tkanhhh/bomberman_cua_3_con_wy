@@ -293,6 +293,7 @@ public class BombermanGame extends Application {
         // Start 2 players
         buttonPlayer2.setOnMouseClicked(event -> {
             Menu.boss.setVisible(false);
+            Menu.Player2.setVisible(true);
             resetGame();
             map = Map.ReadMap("res/levels/Level" + level + ".txt");
             Map.LoadMap();
@@ -386,7 +387,7 @@ public class BombermanGame extends Application {
     }
 
     public static int timeAfterExplode = 120;
-    BOSS_UET boss = new BOSS_UET(15, 7, Sprite.oneal_right1.getFxImage());
+    BOSS_UET boss = new BOSS_UET(15, 7, Sprite.boss_right1.getFxImage());
     /**
      * update menu
      */
@@ -410,7 +411,7 @@ public class BombermanGame extends Application {
                     Menu.boss.setVisible(true);
                     bossLife--;
                     checkBoss = true;
-                    boss = new BOSS_UET(boss.getX_dead(), boss.getY_dead(), Sprite.oneal_right1.getFxImage());
+                    boss = new BOSS_UET(boss.getX_dead(), boss.getY_dead(), Sprite.boss_right1.getFxImage());
                     BombermanGame.bombmap[boss.getY_dead()][boss.getX_dead()] = ' ';
                     BombermanGame.activeEntities.add(boss);
                     BombermanGame.countenemy++;
@@ -423,7 +424,7 @@ public class BombermanGame extends Application {
             gameState = "levelup";
             Menu.boss.setVisible(false);
             bossLife = 2;
-            boss = new BOSS_UET(15, 6, Sprite.oneal_right1.getFxImage());
+            boss = new BOSS_UET(15, 6, Sprite.boss_right1.getFxImage());
             return;
         }
 

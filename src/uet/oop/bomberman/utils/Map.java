@@ -20,6 +20,7 @@ public class Map {
     public static int Dsa_num = 0;
     public static int Oop_num = 0;
     public static int Ca_num = 0;
+
     // Đọc map
     public static char[][] ReadMap(String map_file) {
         char[][] map = new char[BombermanGame.HEIGHT][BombermanGame.WIDTH];
@@ -53,13 +54,15 @@ public class Map {
             }
 
             //Random speed item
-            while (true) {
-                int tmp1 = (int)Math.floor(Math.random() * (height));
-                int tmp2 = (int)Math.floor(Math.random() * (width));
+            for (int i = 0; i < 2; i++) {
+                while (true) {
+                    int tmp1 = (int) Math.floor(Math.random() * (height));
+                    int tmp2 = (int) Math.floor(Math.random() * (width));
 
-                if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 2 && tmp2 <= 2) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
-                    map[tmp1][tmp2] = 's';
-                    break;
+                    if (map[tmp1][tmp2] == ' ' && tmp1 != 7 && tmp2 != 15 && !(tmp1 <= 2 && tmp2 <= 2) && !(tmp1 >= height - 2 && tmp2 >= width - 2)) {
+                        map[tmp1][tmp2] = 's';
+                        break;
+                    }
                 }
             }
 
@@ -100,8 +103,8 @@ public class Map {
 
             // Number of enemies each level
             if (BombermanGame.level == 1) {
-                Dsa_num = 1;
-                Oop_num = 1;
+                Dsa_num = 0;
+                Oop_num = 0;
                 Ca_num = 0;
             } else if (BombermanGame.level == 2) {
                 Dsa_num = 0;
@@ -255,7 +258,7 @@ public class Map {
                         break;
 
                     case '4': // BOSS_UET - PORTABLE ENTITY
-                        BombermanGame.activeEntities.add(new BOSS_UET(j, i, Sprite.oneal_right1.getFxImage()));
+                        BombermanGame.activeEntities.add(new BOSS_UET(j, i, Sprite.boss_right1.getFxImage()));
                         if (BombermanGame.level == 1) {
                             BombermanGame.stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
                         } else if (BombermanGame.level == 2) {

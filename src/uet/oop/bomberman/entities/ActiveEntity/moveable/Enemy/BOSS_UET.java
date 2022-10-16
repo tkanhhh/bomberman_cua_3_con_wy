@@ -32,10 +32,10 @@ public class BOSS_UET extends Enemy {
         arrayList.add(0);
 
         //CREATE BOSS ANIMATION
-        createMoveUpAnimation(Sprite.oneal_left1,Sprite.oneal_left2,Sprite.oneal_left3);
-        createMoveDownAnimation(Sprite.oneal_right1,Sprite.oneal_right2,Sprite.oneal_right3);
-        createMoveLeftAnimation(Sprite.oneal_left1,Sprite.oneal_left2,Sprite.oneal_left3);
-        createMoveRightAnimation(Sprite.oneal_right1,Sprite.oneal_right2,Sprite.oneal_right3);
+        createMoveUpAnimation(Sprite.boss_left1,Sprite.boss_left2,Sprite.boss_left3);
+        createMoveDownAnimation(Sprite.boss_right1,Sprite.boss_right2,Sprite.boss_right3);
+        createMoveLeftAnimation(Sprite.boss_left1,Sprite.boss_left2,Sprite.boss_left3);
+        createMoveRightAnimation(Sprite.boss_right1,Sprite.boss_right2,Sprite.boss_right3);
     }
 
     public void moveUp() {
@@ -86,7 +86,7 @@ public class BOSS_UET extends Enemy {
             }
             // Animation when boss dies
             if (animationTime > 60) {
-                setImg(Sprite.oneal_dead.getFxImage());
+                setImg(Sprite.boss_dead.getFxImage());
             } else {
                 setImg(Sprite.movingSprite(Sprite.mob_dead1,Sprite.mob_dead2,Sprite.mob_dead3,animationTime,20).getFxImage());
             }

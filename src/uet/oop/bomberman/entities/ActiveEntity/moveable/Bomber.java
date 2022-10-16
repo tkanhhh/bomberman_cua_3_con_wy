@@ -67,8 +67,8 @@ public class Bomber extends PortableEntity {
 
     @Override
     public void moveUp() {
-        if (canMove(this.getX()+3,this.getY()-speed, BombermanGame.map) && canMove(this.getX()+ Sprite.SCALED_SIZE-5,this.getY()-speed,BombermanGame.map)) {
-            if (BombermanGame.map[(this.getY()-speed)/ Sprite.SCALED_SIZE][(this.getX()+3)/Sprite.SCALED_SIZE] != '%') {
+        if (canMove(this.getX()+7,this.getY()-speed, BombermanGame.map) && canMove(this.getX()+ Sprite.SCALED_SIZE-9,this.getY()-speed,BombermanGame.map)) {
+            if (BombermanGame.map[(this.getY()-speed)/ Sprite.SCALED_SIZE][(this.getX()+7)/Sprite.SCALED_SIZE] != '%') {
                 this.setY(this.getY() - speed);
             }
 
@@ -78,8 +78,8 @@ public class Bomber extends PortableEntity {
 
     @Override
     public void moveDown() {
-        if (canMove(this.getX()+3,this.getY()+speed+Sprite.SCALED_SIZE,BombermanGame.map) && canMove(this.getX()+Sprite.SCALED_SIZE-5,this.getY()+speed+Sprite.SCALED_SIZE-3,BombermanGame.map)) {
-            if (BombermanGame.map[(this.getY()+speed+Sprite.SCALED_SIZE)/ Sprite.SCALED_SIZE][(this.getX()+3)/Sprite.SCALED_SIZE] != '%') {
+        if (canMove(this.getX()+7,this.getY()+speed+Sprite.SCALED_SIZE,BombermanGame.map) && canMove(this.getX()+Sprite.SCALED_SIZE-9,this.getY()+speed+Sprite.SCALED_SIZE-7,BombermanGame.map)) {
+            if (BombermanGame.map[(this.getY()+speed+Sprite.SCALED_SIZE)/ Sprite.SCALED_SIZE][(this.getX()+7)/Sprite.SCALED_SIZE] != '%') {
                 this.setY(this.getY() + speed);
             }
         }
@@ -88,8 +88,8 @@ public class Bomber extends PortableEntity {
 
     @Override
     public void moveLeft() {
-        if (canMove(this.getX()-speed,this.getY()+3,BombermanGame.map) && canMove(this.getX()-speed,this.getY()+Sprite.SCALED_SIZE-3,BombermanGame.map)) {
-            if (BombermanGame.map[(this.getY()+3)/ Sprite.SCALED_SIZE][(this.getX()-speed)/Sprite.SCALED_SIZE] != '%') {
+        if (canMove(this.getX()-speed,this.getY()+7,BombermanGame.map) && canMove(this.getX()-speed,this.getY()+Sprite.SCALED_SIZE-7,BombermanGame.map)) {
+            if (BombermanGame.map[(this.getY()+7)/ Sprite.SCALED_SIZE][(this.getX()-speed)/Sprite.SCALED_SIZE] != '%') {
                 this.setX(this.getX() - speed);
             }
 
@@ -99,8 +99,8 @@ public class Bomber extends PortableEntity {
 
     @Override
     public void moveRight() {
-        if (canMove(this.getX()+Sprite.SCALED_SIZE-5+speed,this.getY()+3,BombermanGame.map) && canMove(this.getX()+speed+Sprite.SCALED_SIZE-3,this.getY()+Sprite.SCALED_SIZE-5,BombermanGame.map)) {
-            if (BombermanGame.map[(this.getY()+3)/ Sprite.SCALED_SIZE][(this.getX()+Sprite.SCALED_SIZE-5+speed)/Sprite.SCALED_SIZE] != '%') {
+        if (canMove(this.getX()+Sprite.SCALED_SIZE-7+speed,this.getY()+7,BombermanGame.map) && canMove(this.getX()+speed+Sprite.SCALED_SIZE-7,this.getY()+Sprite.SCALED_SIZE-9,BombermanGame.map)) {
+            if (BombermanGame.map[(this.getY()+7)/ Sprite.SCALED_SIZE][(this.getX()+Sprite.SCALED_SIZE-9+speed)/Sprite.SCALED_SIZE] != '%') {
                 this.setX(this.getX() + speed);
             }
         }
