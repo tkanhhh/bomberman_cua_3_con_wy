@@ -181,7 +181,20 @@ public class BombermanGame extends Application {
         stage.getIcons().add(icon);
 
         // Play BGM
-        new Sound("sound/start.wav", "title");
+        int a = (int)Math.floor(Math.random() * (3 - 1 + 1) + 1);
+        switch (a) {
+            case 1:
+                new Sound("sound/start.wav", "title");
+                break;
+
+            case 2:
+                new Sound("sound/start2.wav", "title");
+                break;
+
+            case 3:
+                new Sound("sound/start3.wav", "title");
+                break;
+        }
 
         // Listen to input from scene
         KeyHandle.keyHandlers(scene);

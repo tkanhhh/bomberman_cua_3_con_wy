@@ -15,30 +15,8 @@ public class HardMode {
      * //@param y: the y-coordinate
      * @return 0 ,1 ,2, 3: moveUp , moveDown , moveLeft, moveRight
      */
-//    public static int BFS(int x, int y, char[][] map) {
-//        for (int i = 0; i < BombermanGame.activeEntities.size(); i++) {
-//            if (BombermanGame.activeEntities.get(i) instanceof Bomber) {
-//                if (x - 2 == BombermanGame.activeEntities.get(i).getSmallY() && y == BombermanGame.activeEntities.get(i).getSmallX()) {
-//                    return 0;
-//                } else if (x + 2 == BombermanGame.activeEntities.get(i).getSmallY() && y == BombermanGame.activeEntities.get(i).getSmallX()) {
-//                    return 1;
-//                } else if (x == BombermanGame.activeEntities.get(i).getSmallY() && y - 2 == BombermanGame.activeEntities.get(i).getSmallX()) {
-//                    return 2;
-//                } else if (x == BombermanGame.activeEntities.get(i).getSmallY() &&  y + 2 == BombermanGame.activeEntities.get(i).getSmallX() ) {
-//                    return 3;
-//                } else {
-//                    return EasyMode.calculateDirection(x, y, map);
-//                }
-//            }
-//
-//        }
-//        return EasyMode.calculateDirection(x, y, map);
-//    }
 
-    public static Position dijkstra(BOSS_UET boss, int distance, char[][]map){
-        //char[][] map = new char[BombermanGame.HEIGHT][BombermanGame.WIDTH];
-
-
+    public static Position dijkstra(BOSS_UET boss, int distance, char[][] map, char[][] bombmap){
         int[][] dists = new int[13][31];
         boolean[][] visiteds = new boolean[13][31];
         Position[][] parents = new Position[13][31];
@@ -50,7 +28,7 @@ public class HardMode {
                 parents[i][j] = new Position();
             }
         }
-// INITIALIZATION
+    // INITIALIZATION
         parents[boss.getSmallY()][boss.getSmallX()].x = -1;
         parents[boss.getSmallY()][boss.getSmallX()].y = -1;
         for(int i = 0; i < 13; i++){
@@ -103,7 +81,7 @@ public class HardMode {
                         int right = chosenV.x + 1;
                         int up = chosenV.y - 1;
                         int down = chosenV.y + 1;
-                        if ((left >= 0) && (map[chosenV.y][left] != '#') && ((map[chosenV.y][left] != '%') && ((map[chosenV.y][left] != '*') && (!visiteds[chosenV.y][left])))) {
+                        if ((left >= 0) && (map[chosenV.y][left] != '#') && (map[chosenV.y][left] != '%') && (map[chosenV.y][left] != '*') && (bombmap[chosenV.y][left] != '@') && (!visiteds[chosenV.y][left])) {
                             //if not out of bounds and not wall and not visited
                             if (dists[chosenV.y][left] > (dists[chosenV.y][chosenV.x] + 1)) {
                                 dists[chosenV.y][left] = dists[chosenV.y][chosenV.x] + 1;
@@ -112,7 +90,7 @@ public class HardMode {
                             }
 
                         }
-                        if ((right < 31) && (map[chosenV.y][right] != '#') && ((map[chosenV.y][right] != '%') && ((map[chosenV.y][right] != '*') && (!visiteds[chosenV.y][right])))) {
+                        if ((right < 31) && (map[chosenV.y][right] != '#') && (map[chosenV.y][right] != '%') && (map[chosenV.y][right] != '*') && (bombmap[chosenV.y][right] != '@') && (!visiteds[chosenV.y][right])) {
                             //if not out of bounds and not wall and not visited
                             if (dists[chosenV.y][right] > (dists[chosenV.y][chosenV.x] + 1)) {
                                 dists[chosenV.y][right] = dists[chosenV.y][chosenV.x] + 1;
@@ -121,7 +99,7 @@ public class HardMode {
                             }
 
                         }
-                        if ((up >= 0) && (map[up][chosenV.x] != '#') && (map[up][chosenV.x] != '%') && (map[up][chosenV.x] != '*') && (!visiteds[up][chosenV.x])) {
+                        if ((up >= 0) && (map[up][chosenV.x] != '#') && (map[up][chosenV.x] != '%') && (map[up][chosenV.x] != '*') && (bombmap[up][chosenV.x] != '@') && (!visiteds[up][chosenV.x])) {
                             //if not out of bounds and not wall and not visited
                             if (dists[up][chosenV.x] > (dists[chosenV.y][chosenV.x] + 1)) {
                                 dists[up][chosenV.x] = dists[chosenV.y][chosenV.x] + 1;
@@ -129,7 +107,7 @@ public class HardMode {
                                 parents[up][chosenV.x].y = chosenV.y;
                             }
                         }
-                        if ((down < 13) && (map[down][chosenV.x] != '#') && (map[down][chosenV.x] != '%') && (map[down][chosenV.x] != '*') && (!visiteds[down][chosenV.x])) {
+                        if ((down < 13) && (map[down][chosenV.x] != '#') && (map[down][chosenV.x] != '%') && (map[down][chosenV.x] != '*') && (bombmap[down][chosenV.x] != '@') && (!visiteds[down][chosenV.x])) {
                             //if not out of bounds and not wall and not visited
                             if (dists[down][chosenV.x] > (dists[chosenV.y][chosenV.x] + 1)) {
                                 dists[down][chosenV.x] = dists[chosenV.y][chosenV.x] + 1;
@@ -163,7 +141,7 @@ public class HardMode {
         Path.y = 99; //default value
 
 
-        tempPath = dijkstra(boss, TempDistance, BombermanGame.map);
+        tempPath = dijkstra(boss, TempDistance, BombermanGame.map, BombermanGame.bombmap);
         if (TempDistance < MinDistance) {
             MinDistance = TempDistance;
             Path = tempPath;
@@ -207,5 +185,3 @@ public class HardMode {
         return EasyMode.calculateDirection(boss.getSmallY(), boss.getSmallX(), map);
     }
 }
-
-
