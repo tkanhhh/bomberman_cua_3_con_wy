@@ -73,7 +73,7 @@ public class Sprite {
 	public static Sprite player2_up_2 = new Sprite(DEFAULT_SIZE, 0, 14, SpriteSheet.tiles, 12, 15);
 
 	public static Sprite player2_down_1 = new Sprite(DEFAULT_SIZE, 2, 13, SpriteSheet.tiles, 12, 15);
-	public static Sprite player2_down_2 = new Sprite(DEFAULT_SIZE, 2, 12, SpriteSheet.tiles, 12, 16);
+	public static Sprite player2_down_2 = new Sprite(DEFAULT_SIZE, 2, 14, SpriteSheet.tiles, 12, 16);
 
 	public static Sprite player2_left_1 = new Sprite(DEFAULT_SIZE, 3, 13, SpriteSheet.tiles, 11, 16);
 	public static Sprite player2_left_2 = new Sprite(DEFAULT_SIZE, 3, 14, SpriteSheet.tiles, 12 ,16);
