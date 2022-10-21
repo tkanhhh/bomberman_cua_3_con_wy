@@ -13,10 +13,6 @@ public class Sound {
     public static Clip bomb_explosion;
     public static Clip just_died;
 
-    //public static boolean isSoundDied;
-    public static boolean isSoundTitle;
-    //private static boolean isSoundComplete;
-
     public Sound(String name, String sound) {
         try {
             URL url = this.getClass().getClassLoader().getResource(name);
@@ -46,13 +42,6 @@ public class Sound {
             }
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
-        }
-    }
-
-    public static void updateSound() {
-        if (!isSoundTitle) {
-            new Sound("sound/start.wav", "title");
-            isSoundTitle = true;
         }
     }
 }

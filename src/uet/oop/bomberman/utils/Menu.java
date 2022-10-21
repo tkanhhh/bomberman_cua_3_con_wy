@@ -68,7 +68,8 @@ public class Menu {
 
         statusGame.setOnMouseClicked(event -> {
             System.out.println("CLICKED");
-            if (BombermanGame.gameState.equals("running")) {
+            BombermanGame.tutView.setVisible(false);
+            if (BombermanGame.gameState.equals("running") || BombermanGame.gameState.equals("tutorial")) {
                 BombermanGame.gameState = "startmenu";
                 BombermanGame.level = 1;
                 statusGame.setImage(newGame);

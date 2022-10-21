@@ -22,13 +22,13 @@ public class HardMode {
         Position[][] parents = new Position[13][31];
 
 
-
         for(int i = 0; i < 13; i++){
             for(int j = 0; j < 31; j++){
                 parents[i][j] = new Position();
             }
         }
-    // INITIALIZATION
+
+        // INITIALIZATION
         parents[boss.getSmallY()][boss.getSmallX()].x = -1;
         parents[boss.getSmallY()][boss.getSmallX()].y = -1;
         for(int i = 0; i < 13; i++){
@@ -40,9 +40,7 @@ public class HardMode {
         dists[boss.getSmallY()][boss.getSmallX()] = 0;
 
         //PROSES SEARCH SHORTEST PATH
-        for(int count = 1; count < (31*13); count++){      //Travel all vertices except target
-
-
+        for(int count = 1; count < (31*13); count++){
             //Travel all vertices except target
             int min = 99;
             Position chosenV = new Position();
@@ -115,8 +113,7 @@ public class HardMode {
                                 parents[down][chosenV.x].y = chosenV.y;
                             }
                         }
-                    } else // no candidate anymore
-                    {
+                    } else { // no candidate anymore
                         break;
                     }
                 }

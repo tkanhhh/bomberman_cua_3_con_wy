@@ -15,10 +15,7 @@ import uet.oop.bomberman.entities.ActiveEntity.moveable.Enemy.BOSS_UET;
 import uet.oop.bomberman.entities.Entity;
 import uet.oop.bomberman.entities.FixedEntity.Grass;
 import uet.oop.bomberman.graphics.Sprite;
-import uet.oop.bomberman.utils.KeyHandle;
-import uet.oop.bomberman.utils.Map;
-import uet.oop.bomberman.utils.Menu;
-import uet.oop.bomberman.utils.Sound;
+import uet.oop.bomberman.utils.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -77,7 +74,8 @@ public class BombermanGame extends Application {
     ImageView buttonPlayer1;
     ImageView buttonPlayer2;
     ImageView buttonExit;
-    ImageView startscreenView;
+    ImageView buttonTut;
+    public static ImageView startscreenView, tutView;
 
 
     public static void main(String[] args) {
@@ -95,11 +93,13 @@ public class BombermanGame extends Application {
         Image levelUpScreen = new Image("images/levelup.png");
         Image gameover = new Image("images/gameover.png");
         Image congrat = new Image("images/congrat.png");
+        Image tutorial = new Image("images/tutorial_image.png");
 
         startscreenView = new ImageView(startscreen);
         ImageView levelUpView = new ImageView(levelUpScreen);
         ImageView gameoverView = new ImageView(gameover);
         ImageView congratView = new ImageView(congrat);
+        tutView = new ImageView(tutorial);
 
         startscreenView.setX(0);
         startscreenView.setY(0);
@@ -124,26 +124,39 @@ public class BombermanGame extends Application {
         congratView.setScaleY(1);
         congratView.setVisible(false);
 
+        tutView.setX(0);
+        tutView.setY(48);
+        tutView.setScaleX(1);
+        tutView.setScaleY(1);
+        tutView.setVisible(false);
+
         Image player1 = new Image("images/button1.png");
         Image player2 = new Image("images/button2.png");
         Image exit = new Image("images/exit.png");
+        Image tut = new Image("images/tutorial.png");
 
         buttonPlayer1 = new ImageView(player1);
         buttonPlayer1.setLayoutX(380);
-        buttonPlayer1.setLayoutY(330);
+        buttonPlayer1.setLayoutY(300);
         buttonPlayer1.setFitHeight(64);
         buttonPlayer1.setFitWidth(290);
 
 
         buttonPlayer2 = new ImageView(player2);
         buttonPlayer2.setLayoutX(380);
-        buttonPlayer2.setLayoutY(430);
+        buttonPlayer2.setLayoutY(380);
         buttonPlayer2.setFitHeight(64);
         buttonPlayer2.setFitWidth(290);
 
+        buttonTut = new ImageView(tut);
+        buttonTut.setLayoutX(380);
+        buttonTut.setLayoutY(460);
+        buttonTut.setFitHeight(64);
+        buttonTut.setFitWidth(290);
+
         buttonExit = new ImageView(exit);
         buttonExit.setLayoutX(380);
-        buttonExit.setLayoutY(530);
+        buttonExit.setLayoutY(540);
         buttonExit.setFitHeight(64);
         buttonExit.setFitWidth(290);
 
@@ -162,8 +175,10 @@ public class BombermanGame extends Application {
         root.getChildren().add(levelUpView);
         root.getChildren().add(gameoverView);
         root.getChildren().add(congratView);
+        root.getChildren().add(tutView);
         root.getChildren().add(buttonPlayer1);
         root.getChildren().add(buttonPlayer2);
+        root.getChildren().add(buttonTut);
         root.getChildren().add(buttonExit);
         //==========================================
 
@@ -181,19 +196,20 @@ public class BombermanGame extends Application {
         stage.getIcons().add(icon);
 
         // Play BGM
-        int a = (int)Math.floor(Math.random() * (3 - 1 + 1) + 1);
+
+        int a = (int) Math.floor(Math.random() * (3 - 1 + 1) + 1);
         switch (a) {
-            case 1:
-                new Sound("sound/start.wav", "title");
-                break;
+             case 1:
+                 new Sound("sound/start.wav", "title");
+                 break;
 
-            case 2:
-                new Sound("sound/start2.wav", "title");
-                break;
+             case 2:
+                 new Sound("sound/start2.wav", "title");
+                  break;
 
-            case 3:
-                new Sound("sound/start3.wav", "title");
-                break;
+             case 3:
+                 new Sound("sound/start3.wav", "title");
+                 break;
         }
 
         // Listen to input from scene
@@ -206,6 +222,10 @@ public class BombermanGame extends Application {
             public void handle(long l) {
                 if (gameState.equals("startmenu")) {
                     showStart();
+                }
+
+                if (gameState.equals("tutorial")) {
+                    hideStart();
                 }
 
                 if (gameState.equals("running")) {
@@ -290,7 +310,7 @@ public class BombermanGame extends Application {
         //1 player button will be smaller if mouse point at
         buttonPlayer1.setOnMouseEntered(mouseEvent -> {
             buttonPlayer1.setLayoutX(380);
-            buttonPlayer1.setLayoutY(330);
+            buttonPlayer1.setLayoutY(300);
             buttonPlayer1.setFitHeight(50);
             buttonPlayer1.setFitWidth(276);
         });
@@ -298,7 +318,7 @@ public class BombermanGame extends Application {
         // 1 player button back to normal
         buttonPlayer1.setOnMouseExited(mouseEvent -> {
             buttonPlayer1.setLayoutX(380);
-            buttonPlayer1.setLayoutY(330);
+            buttonPlayer1.setLayoutY(300);
             buttonPlayer1.setFitHeight(64);
             buttonPlayer1.setFitWidth(290);
         });
@@ -317,7 +337,7 @@ public class BombermanGame extends Application {
         // 2 player button will be smaller if mouse point at
         buttonPlayer2.setOnMouseEntered(mouseEvent -> {
             buttonPlayer2.setLayoutX(380);
-            buttonPlayer2.setLayoutY(430);
+            buttonPlayer2.setLayoutY(380);
             buttonPlayer2.setFitHeight(50);
             buttonPlayer2.setFitWidth(276);
         });
@@ -325,25 +345,52 @@ public class BombermanGame extends Application {
         // 2 player button back to normal
         buttonPlayer2.setOnMouseExited(mouseEvent -> {
             buttonPlayer2.setLayoutX(380);
-            buttonPlayer2.setLayoutY(430);
+            buttonPlayer2.setLayoutY(380);
             buttonPlayer2.setFitHeight(64);
             buttonPlayer2.setFitWidth(290);
         });
 
+        //Tutorial
+        buttonTut.setOnMouseClicked(mouseEvent -> {
+            gameState = "tutorial";
+            tutView.setVisible(true);
+            Menu.Player1.setVisible(false);
+            Menu.Player2.setVisible(false);
+            Menu.boss.setVisible(false);
+            Menu.level.setVisible(false);
+            Menu.time.setVisible(false);
+        });
+
+        buttonTut.setOnMouseEntered(mouseEvent -> {
+            buttonTut.setLayoutX(380);
+            buttonTut.setLayoutY(460);
+            buttonTut.setFitHeight(50);
+            buttonTut.setFitWidth(276);
+        });
+
+        buttonTut.setOnMouseExited(mouseEvent -> {
+            buttonTut.setLayoutX(380);
+            buttonTut.setLayoutY(460);
+            buttonTut.setFitHeight(64);
+            buttonTut.setFitWidth(290);
+        });
+
+
+        // Exit
         buttonExit.setOnMouseClicked(mouseEvent -> {
             System.exit(0);
         });
 
         buttonExit.setOnMouseEntered(mouseEvent -> {
             buttonExit.setLayoutX(380);
-            buttonExit.setLayoutY(530);
+            buttonExit.setLayoutY(540);
             buttonExit.setFitHeight(50);
             buttonExit.setFitWidth(276);
         });
 
         buttonExit.setOnMouseExited(mouseEvent -> {
             buttonExit.setLayoutX(380);
-            buttonExit.setLayoutY(530);
+            buttonExit.setLayoutY(540);
             buttonExit.setFitHeight(64);
             buttonExit.setFitWidth(290);
         });
@@ -357,6 +404,8 @@ public class BombermanGame extends Application {
         buttonPlayer2.setDisable(true);
         buttonExit.setVisible(false);
         buttonExit.setDisable(true);
+        buttonTut.setDisable(true);
+        buttonTut.setVisible(false);
     }
 
     private void showStart() {
@@ -367,6 +416,8 @@ public class BombermanGame extends Application {
         buttonPlayer1.setDisable(false);
         buttonPlayer2.setDisable(false);
         buttonExit.setDisable(false);
+        buttonTut.setVisible(true);
+        buttonTut.setDisable(false);
     }
 
     private void addOnePlayer() {
