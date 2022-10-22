@@ -8,5 +8,6 @@
 ## About Game
 
 ## UML Diagram
-![UML BOMBERMAN](https://user-images.githubusercontent.com/100185884/197329222-18ce7f03-375f-4d89-ae39-98ba2372a871.png)
+![image](https://user-images.githubusercontent.com/100185884/197346802-606f0343-d6c5-42ea-84dd-96d80d29593b.png)
+
 
