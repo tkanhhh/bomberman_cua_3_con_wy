@@ -68,5 +68,5 @@ Xem comment ở starter project
 
 
 # UML
-![image](https://user-images.githubusercontent.com/100185884/197329061-9e355518-439a-46b1-9c76-7f6108f0ea0a.png)
+![UML BOMBERMAN](https://user-images.githubusercontent.com/100185884/197329222-18ce7f03-375f-4d89-ae39-98ba2372a871.png)
 
