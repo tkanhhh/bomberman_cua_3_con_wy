@@ -11,12 +11,12 @@ public abstract class Entity {
 
     public boolean show = true; // if true then render
 
-    //Tọa độ X tính từ góc trái trên trong Canvas
+    //X coordinate start with top-left corner on Canvas
     protected Sprite sprite;
 
     protected int x;
 
-    //Tọa độ Y tính từ góc trái trên trong Canvas
+    //Y coordinate start with top-left corner on Canvas
     protected int y;
 
     protected Image img;
@@ -47,12 +47,12 @@ public abstract class Entity {
         this.img = img;
     }
 
-    //Từ toạ độ x trên canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
+    //x coordinate on canvas -> x unit on map
     public int getSmallX() {
         return (x + (Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
     }
 
-    //Từ toạ độ y canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
+    //y coordinate on canvas -> y unit on map
     public int getSmallY(){
         return (y + (Sprite.SCALED_SIZE/2))/Sprite.SCALED_SIZE;
     }
@@ -61,12 +61,11 @@ public abstract class Entity {
         return (x)/Sprite.SCALED_SIZE;
     }
 
-    //Từ toạ độ y canvas -> toạ độ đơn vị trên MAP , có vài việc cần làm
     public int getEXSmallY(){
         return (y)/Sprite.SCALED_SIZE;
     }
 
-    //Khởi tạo đối tượng, chuyển từ tọa độ đơn vị sang tọa độ trong canvas
+    //Contructor, convert from x to x unit, y to y unit
     public Entity( int x, int y, Image img) {
         this.x = x * Sprite.SCALED_SIZE;
         this.y = y * Sprite.SCALED_SIZE;

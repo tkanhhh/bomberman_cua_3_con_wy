@@ -15,7 +15,7 @@ import uet.oop.bomberman.utils.Sound;
 public class Bomber extends PortableEntity {
 
     public int bomberID = 0;
-    public int maxBomb; // số lượng bom tối đa mà bomber đặt được trên map
+    public int maxBomb; // max bomb can put on map
     public int timeDelayEachBom = 30;
     private int powerFlames;
     private int animationTime = 60;

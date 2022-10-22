@@ -126,16 +126,16 @@ public class Map {
             // Number of enemies each level
             if (BombermanGame.level == 1) {
                 Dsa_num = 1;
-                Oop_num = 0;
+                Oop_num = 1;
                 Ca_num = 0;
             } else if (BombermanGame.level == 2) {
                 Dsa_num = 1;
                 Oop_num = 1;
-                Ca_num = 0;
+                Ca_num = 1;
             } else {
                 Dsa_num = 1;
                 Oop_num = 1;
-                Ca_num = 1;
+                Ca_num = 2;
             }
 
             //Random dsa

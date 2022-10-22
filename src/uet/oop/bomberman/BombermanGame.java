@@ -13,9 +13,11 @@ import uet.oop.bomberman.entities.ActiveEntity.ActiveEntity;
 import uet.oop.bomberman.entities.ActiveEntity.moveable.Bomber;
 import uet.oop.bomberman.entities.ActiveEntity.moveable.Enemy.BOSS_UET;
 import uet.oop.bomberman.entities.Entity;
-import uet.oop.bomberman.entities.FixedEntity.Grass;
 import uet.oop.bomberman.graphics.Sprite;
-import uet.oop.bomberman.utils.*;
+import uet.oop.bomberman.utils.KeyHandle;
+import uet.oop.bomberman.utils.Map;
+import uet.oop.bomberman.utils.Menu;
+import uet.oop.bomberman.utils.Sound;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -457,7 +459,7 @@ public class BombermanGame extends Application {
         bossLife = 2;
         map = new char[1][1]; //will be re assign later
         bombmap = new char[1][1]; //will be reassign later
-        gameTime = 48800;
+        gameTime = 28800;
     }
 
     public static int timeAfterExplode = 120;

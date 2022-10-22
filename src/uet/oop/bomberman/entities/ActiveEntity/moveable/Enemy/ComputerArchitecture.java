@@ -9,7 +9,7 @@ import uet.oop.bomberman.graphics.Sprite;
  * ComputerArchitecture is as hard as DSA
  */
 public class ComputerArchitecture extends Enemy {
-    private int randomTimeInterval = 60;     // thời gian giữa mỗi lần random hướng
+    private int randomTimeInterval = 60;     // time between 2 random
 
     public ComputerArchitecture(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
@@ -50,7 +50,7 @@ public class ComputerArchitecture extends Enemy {
         if (isDead) {
             animationTime--;
             if (animationTime < 0) {
-                delete = true; // Xoá
+                delete = true; // Delete
             }
             // Animation when CA dies
             if (animationTime > 60) {

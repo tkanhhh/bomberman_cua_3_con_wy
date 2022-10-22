@@ -14,7 +14,6 @@ import uet.oop.bomberman.graphics.Sprite;
 public class Menu {
     private static ImageView statusGame;
     public static Text level, time, boss;
-    public static int bombNumber = 50;
     public static Text Player1, Player2;
 
 

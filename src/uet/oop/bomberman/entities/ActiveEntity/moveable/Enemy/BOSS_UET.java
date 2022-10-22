@@ -1,18 +1,16 @@
 package uet.oop.bomberman.entities.ActiveEntity.moveable.Enemy;
 
 import javafx.scene.image.Image;
+import uet.oop.bomberman.AI.HardMode;
 import uet.oop.bomberman.AI.Position;
 import uet.oop.bomberman.BombermanGame;
-import uet.oop.bomberman.AI.HardMode;
-import uet.oop.bomberman.entities.ActiveEntity.ActiveEntity;
-import uet.oop.bomberman.entities.ActiveEntity.moveable.Bomber;
 import uet.oop.bomberman.graphics.Sprite;
+
 import java.util.ArrayList;
-import java.util.Random;
 
 public class BOSS_UET extends Enemy {
 
-    private int randomTimeInterval = 60;     // thời gian giữa mỗi lần random hướng
+    private int randomTimeInterval = 60;     // time between 2 random
     ArrayList<Integer> arrayList = new ArrayList<>();
     int animation = 0;
     int max = 3;
@@ -94,7 +92,6 @@ public class BOSS_UET extends Enemy {
         } else {
 
             if(this.getY()%Sprite.SCALED_SIZE == 0 && this.getX()%Sprite.SCALED_SIZE == 0 && randomTimeInterval< 0) {
-                //direction = HardMode.BFS(this.getEXSmallY(),this.getSmallX(), BombermanGame.map);
                 path = HardMode.findClosest(this);
                 direction = HardMode.Moving(this, path, BombermanGame.map, BombermanGame.bombmap);
                 speed = (int)Math.floor(Math.random()*(max-min+1)+min);

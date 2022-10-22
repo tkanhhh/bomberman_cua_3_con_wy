@@ -1,10 +1,8 @@
 package uet.oop.bomberman.entities.ActiveEntity.Weapon;
 
-import javafx.scene.PointLight;
 import javafx.scene.image.Image;
 import uet.oop.bomberman.BombermanGame;
 import uet.oop.bomberman.entities.ActiveEntity.ActiveEntity;
-import uet.oop.bomberman.entities.ActiveEntity.Portal;
 import uet.oop.bomberman.entities.ActiveEntity.moveable.Bomber;
 import uet.oop.bomberman.entities.ActiveEntity.moveable.Enemy.Enemy;
 import uet.oop.bomberman.graphics.Sprite;

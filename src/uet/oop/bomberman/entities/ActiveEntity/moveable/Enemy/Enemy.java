@@ -2,7 +2,6 @@ package uet.oop.bomberman.entities.ActiveEntity.moveable.Enemy;
 
 import javafx.scene.image.Image;
 import uet.oop.bomberman.BombermanGame;
-import uet.oop.bomberman.AI.EasyMode;
 import uet.oop.bomberman.entities.ActiveEntity.ActiveEntity;
 import uet.oop.bomberman.entities.ActiveEntity.moveable.Bomber;
 import uet.oop.bomberman.entities.ActiveEntity.moveable.PortableEntity;

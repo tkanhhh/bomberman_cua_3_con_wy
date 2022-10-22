@@ -7,12 +7,10 @@ import uet.oop.bomberman.entities.ActiveEntity.moveable.Enemy.BOSS_UET;
 public class HardMode {
 
     /**
-     * BFS algorithm to calculate path for enemy
+     * Dijkstra algorithm to calculate path for enemy
      * Enemy's coordinate is x and y
-     * Tính toán đường đi dựa trên map truyền vào
+     * Calculate based on path on map
      *
-     * //@param x: the x-coordinate
-     * //@param y: the y-coordinate
      * @return 0 ,1 ,2, 3: moveUp , moveDown , moveLeft, moveRight
      */
 
