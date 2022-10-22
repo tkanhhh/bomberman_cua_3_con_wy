@@ -42,6 +42,8 @@ public class BombermanGame extends Application {
 
     public static int gameoverTIMEDELAY = 120;
 
+    public static boolean playGameOverSound = false; //check if gameover sound has played or not
+
     /**
      * char[][] contains index of brick, wall and bomber
      */
@@ -196,7 +198,6 @@ public class BombermanGame extends Application {
         stage.getIcons().add(icon);
 
         // Play BGM
-
         int a = (int) Math.floor(Math.random() * (3 - 1 + 1) + 1);
         switch (a) {
              case 1:
@@ -234,11 +235,16 @@ public class BombermanGame extends Application {
                 }
 
                 if (gameState.equals("gameover")) {
+                    if (!playGameOverSound) {
+                        new Sound("sound/gameover.wav", "gameover");
+                        playGameOverSound = true;
+                    }
                     if (gameoverTimer > 0) { // count delay time after game over, 5 s
                         gameoverTimer--;
                         gameoverView.setVisible(true);
                     } else { // reset game
                         level = 1;
+                        playGameOverSound = false;
                         resetGame();
                         map = Map.ReadMap("res/levels/Level" + level + ".txt");
                         Map.LoadMap();
@@ -463,7 +469,7 @@ public class BombermanGame extends Application {
         Menu.updateMenu();
         if (countBomber <= 0 ) {
             gameoverTIMEDELAY--;
-            if(gameoverTIMEDELAY < 0) {
+            if (gameoverTIMEDELAY < 0) {
                 gameState = "gameover";
                 gameoverTIMEDELAY = 120;
                 return;

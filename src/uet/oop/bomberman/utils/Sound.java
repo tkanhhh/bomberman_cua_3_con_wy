@@ -12,6 +12,7 @@ public class Sound {
     public static Clip title_screen;
     public static Clip bomb_explosion;
     public static Clip just_died;
+    public static Clip game_over;
 
     public Sound(String name, String sound) {
         try {
@@ -23,7 +24,7 @@ public class Sound {
                 title_screen = AudioSystem.getClip();
                 title_screen.open(audioIn);
                 title_screen.start();
-                title_screen.loop(10);
+                title_screen.loop(-1);
             }
             if (sound.equals("explosion")) {
                 bomb_explosion = AudioSystem.getClip();
@@ -34,6 +35,11 @@ public class Sound {
                 just_died = AudioSystem.getClip();
                 just_died.open(audioIn);
                 just_died.start();
+            }
+            if (sound.equals("gameover")) {
+                game_over = AudioSystem.getClip();
+                game_over.open(audioIn);
+                game_over.start();
             }
             if (sound.equals("default")) {
                 Clip clip = AudioSystem.getClip();

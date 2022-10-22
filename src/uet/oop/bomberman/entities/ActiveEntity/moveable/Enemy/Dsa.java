@@ -70,9 +70,7 @@ public class Dsa extends Enemy {
             }
 
         } else {
-
-            if
-            (this.getY()%Sprite.SCALED_SIZE == 0 && this.getX()%Sprite.SCALED_SIZE == 0 && randomTimeInterval <0) {
+            if (this.getY()%Sprite.SCALED_SIZE == 0 && this.getX()%Sprite.SCALED_SIZE == 0 && randomTimeInterval < 0) {
                 direction = EasyMode.calculateDirection(this.getEXSmallY(),this.getSmallX(), BombermanGame.map);
                 randomTimeInterval = 30;
             } else {

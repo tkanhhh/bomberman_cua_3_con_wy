@@ -53,8 +53,7 @@ public class Bomb extends ActiveEntity {
                 {
                     this.flameList.add(new Flame(this.getSmallX()+i,this.getSmallY(),3,false,Sprite.explosion_vertical.getFxImage(),bomberID));
                 }
-            } else
-            {
+            } else {
                 break;
             }
         }

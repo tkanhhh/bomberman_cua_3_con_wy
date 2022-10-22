@@ -161,7 +161,7 @@ public class Bomber extends PortableEntity {
                 if (BombermanGame.countbomb.get(bomberID) < maxBomb && timeDelayEachBom <= 0) {
                     new Sound("sound/putboom.wav", "default");
                     timeDelayEachBom = 50;
-                    BombermanGame.activeEntities.add(new Bomb(this.getSmallX(), this.getSmallY(), Sprite.bomb.getFxImage(), bomberID,powerFlames));
+                    BombermanGame.activeEntities.add(new Bomb(this.getSmallX(), this.getSmallY(), Sprite.bomb.getFxImage(), bomberID, powerFlames));
                     System.gc();
                 }
             }
