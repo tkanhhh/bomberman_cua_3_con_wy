@@ -1,5 +1,5 @@
 # Table of contents
-1. [Introduction](#Intorduction)
+1. [Introduction](#Introduction)
 2. About Game
 3. UML Diagram
 
