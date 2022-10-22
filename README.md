@@ -8,6 +8,6 @@
 ## About Game
 
 ## UML Diagram
-![image](https://user-images.githubusercontent.com/100185884/197346802-606f0343-d6c5-42ea-84dd-96d80d29593b.png)
+![Untitled Workspace](https://user-images.githubusercontent.com/100185884/197350219-35673018-6ed7-4f77-b935-281a9822938c.png)
 
 
