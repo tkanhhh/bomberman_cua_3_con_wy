@@ -32,7 +32,7 @@
 ## II. About Game 🎮 <a name="about"></a>
 ### 1. Thông tin chung
 - Ngôn ngữ: [JAVA](https://www.java.com/en/)
-- Phiên bản SDK: SDK 18
+- Phiên bản SDK: [SDK 18](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)
 - IDE: [IntelliJ](https://www.jetbrains.com/idea/)
 - Thư viện đồ hoạ: [JavaFx](https://openjfx.io)
 
