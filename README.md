@@ -3,15 +3,15 @@
 <h1 align="center">Table of contents 📖</h1>
 
 <h2 align="center">
-  <a href="introduction">I. Giới thiệu chung</a>
+  <a href="#introduction">I. Giới thiệu chung</a>
   <br />
-  <a href="about">II. About Game</a>
+  <a href="#about">II. About Game</a>
   <br />
-  <a href="uml">III. UML Diagram</a>
+  <a href="#uml">III. UML Diagram</a>
   <br />
-  <a href="algorithm">IV. Thuật toán và kĩ thuật lập trình đã sử dụng</a>
+  <a href="#algorithm">IV. Thuật toán và kĩ thuật lập trình đã sử dụng</a>
   <br />
-  <a href="conclusion">V. Kết luận, hướng phát triển, điều rút ra được</a>
+  <a href="#conclusion">V. Kết luận, hướng phát triển, điều rút ra được</a>
   <br />
 </h2>
 <br />
