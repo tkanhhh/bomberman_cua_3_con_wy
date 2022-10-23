@@ -7,13 +7,11 @@ II. About Game
 
 III. UML Diagram
 
-IV. Cách cài đặt
+IV. Thuật toán và kĩ thuật lập trình đã sử dụng
 
-V. Thuật toán và kĩ thuật lập trình đã sử dụng
+V. Kết luận, hướng phát triển, điều rút ra được
 
-VI. Kết luận, hướng phát triển, điều rút ra được
-
-## 1. Giới thiệu chung
+## I. Giới thiệu chung
 1. Tên nhóm: OOP_N2_BTL_N2
 2. Lớp: INT2204 20 - Lập trình hướng đối tượng
 3. Tên game: Bomberman của 3 con wỷ
@@ -26,13 +24,30 @@ VI. Kết luận, hướng phát triển, điều rút ra được
 |   3   |    Hồ Thu Giang    | 21020309 | 21020309@vnu.edu.vn | [hothugiang](https://github.com/hothugiang)   |
 
 
+## II. About Game
+### 1. Thông tin chung
+- Ngôn ngữ: [JAVA](https://www.java.com/en/)
+- Phiên bản SDK: Java 18
+- IDE: [IntelliJ](https://www.jetbrains.com/idea/)
+- Thư viện đồ hoạ: [JavaFx](https://openjfx.io)
 
-## 2. About Game
+### 2. Cách chơi
+[Video demo]
+Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, tìm cổng ![](res/sprites/portal.png) để qua màn
 
-## 3. UML Diagram
+>**Enemies**
+>
+>**PowerUp**
+>
+
+### 3. Cách cài đặt
+<Ai đọ vít hộ chứ cí nì t hum bíc vt =))))))>
+
+## III. UML Diagram
 ![Untitled Workspace](https://user-images.githubusercontent.com/100185884/197350219-35673018-6ed7-4f77-b935-281a9822938c.png)
 
-## 4. Installation instructions
+## IV. Thuật toán và kĩ thuật lập trình đã sử dụng
 
-## 5. Algorithm & programming techniques
+## V. Kết luận, hướng phát triển, điều rút ra được
+
 
