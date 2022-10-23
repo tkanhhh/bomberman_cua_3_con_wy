@@ -40,6 +40,8 @@
 
 #### [VIDEO DEMO](https://youtu.be/0EiIEkmMF4w)
 
+{@embed: https://youtu.be/0EiIEkmMF4w}
+
 Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, tìm cổng ![](res/sprites/portal.png) để qua màn
 
 >**Enemies**
