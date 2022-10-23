@@ -308,6 +308,9 @@ public class BombermanGame extends Application {
         buttonPlayer1.setOnMouseClicked(event -> {
             Menu.Player2.setVisible(false);
             Menu.boss.setVisible(false);
+            Menu.Player1.setVisible(true);
+            Menu.level.setVisible(true);
+            Menu.time.setVisible(true);
             resetGame();
             map = Map.ReadMap("res/levels/Level" + level + ".txt");
             Map.LoadMap();
@@ -335,6 +338,10 @@ public class BombermanGame extends Application {
         buttonPlayer2.setOnMouseClicked(event -> {
             Menu.boss.setVisible(false);
             Menu.Player2.setVisible(true);
+            Menu.Player1.setVisible(true);
+            Menu.boss.setVisible(true);
+            Menu.level.setVisible(true);
+            Menu.time.setVisible(true);
             resetGame();
             map = Map.ReadMap("res/levels/Level" + level + ".txt");
             Map.LoadMap();

@@ -8,7 +8,6 @@ import java.util.HashSet;
 
 public class KeyHandle {
     static HashSet<String> keysList = new HashSet<String>();
-    public boolean up = false, down = false, left = false, right = false;
 
     public static void keyHandlers(Scene scene) {
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {

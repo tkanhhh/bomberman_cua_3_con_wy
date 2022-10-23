@@ -16,7 +16,6 @@ public class Menu {
     public static Text level, time, boss;
     public static Text Player1, Player2;
 
-
     public static void createMenu(Group root) {
         level = new Text("Level: 1");
         level.setFont(Font.font("Arial", FontWeight.BOLD, 18));

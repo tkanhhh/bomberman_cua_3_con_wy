@@ -127,7 +127,7 @@ public class Map {
             if (BombermanGame.level == 1) {
                 Dsa_num = 1;
                 Oop_num = 1;
-                Ca_num = 0;
+                Ca_num = 1;
             } else if (BombermanGame.level == 2) {
                 Dsa_num = 1;
                 Oop_num = 1;
