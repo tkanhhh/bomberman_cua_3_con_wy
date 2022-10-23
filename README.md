@@ -1,6 +1,6 @@
 # ------------- BOMBERMAN_CỦA_3_CON_WỶ -------------
 
-## Table of contents
+# Table of contents 📖
 I. Giới thiệu chung
 
 II. About Game
@@ -15,7 +15,7 @@ V. Kết luận, hướng phát triển, điều rút ra được
 1. Tên nhóm: OOP_N2_BTL_N2
 2. Lớp: INT2204 20 - Lập trình hướng đối tượng
 3. Tên game: Bomberman của 3 con wỷ
-4. Thành viên nhóm: 
+4. Thành viên nhóm:
 
 | Order |        Name        |    ID    |        Email        |                Github account                 |
 | :---: |:------------------:|:--------:|:-------------------:|:---------------------------------------------:|
@@ -24,7 +24,7 @@ V. Kết luận, hướng phát triển, điều rút ra được
 |   3   |    Hồ Thu Giang    | 21020309 | 21020309@vnu.edu.vn | [hothugiang](https://github.com/hothugiang)   |
 
 
-## II. About Game
+## II. About Game 🎮
 ### 1. Thông tin chung
 - Ngôn ngữ: [JAVA](https://www.java.com/en/)
 - Phiên bản SDK: Java 18
