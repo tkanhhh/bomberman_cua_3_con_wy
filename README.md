@@ -101,4 +101,6 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 - Học thêm một số hàm, thư viện chưa gặp trong các bài tập
 
 ### 2. Hướng phát triển, cải tiến
-
+- Thuật toán AI cho máy tự chơi
+- Cải tiến thuật toán di chuyển, xử lý va chạm khi đặt bomb trùng với vị trí của quái
+- ...
