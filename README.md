@@ -1,7 +1,7 @@
 # ------------- BOMBERMAN_CỦA_3_CON_WỶ -------------
 
 ## Table of contents
-I. [Giới thiệu chung](!Giới thiệu chung)
+I. ![Giới thiệu chung](Giới thiệu chung)
 
 II. About Game
 
