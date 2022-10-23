@@ -79,9 +79,22 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 - Phát nhạc nền, sound effect
 
 ### 4. Cách cài đặt
-1. Lên đầu trang: https://github.com/tkanhhh/bomberman_cua_3_con_wy
-2. Bấm vào nút code màu xanh lá bên góc phải => Download ZIP
-3. Giải nén
+a. Cài đặt IDE, thư viện đồ hoạ
+- Cái Intellij, Java 18
+
+- Cài javafx
+
+b. Tải code
+- Lên đầu trang: https://github.com/tkanhhh/bomberman_cua_3_con_wy
+
+- Bấm vào nút code màu xanh lá bên góc phải => Download ZIP
+
+- Giải nén
+
+c. Cài đặt và chạy game
+- Mở Intellij, mở project vừa tải
+
+- Chọn Run/Edit Configurations 
 
 ## III. UML Diagram <a name="uml"></a>
 ![BST (3)](https://user-images.githubusercontent.com/100121386/197376395-1a2da0a3-2a06-4943-b595-e01ac7bc1218.png)
