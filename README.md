@@ -2,10 +2,15 @@
 
 ## Table of contents
 I. Giới thiệu chung
+
 II. About Game
+
 III. UML Diagram
+
 IV. Cách cài đặt
+
 V. Thuật toán và kĩ thuật lập trình đã sử dụng
+
 VI. Kết luận, hướng phát triển, điều rút ra được
 
 ## 1. Introduction
