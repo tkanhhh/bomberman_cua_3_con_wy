@@ -339,7 +339,7 @@ public class BombermanGame extends Application {
             Menu.boss.setVisible(false);
             Menu.Player2.setVisible(true);
             Menu.Player1.setVisible(true);
-            Menu.boss.setVisible(true);
+            Menu.boss.setVisible(false);
             Menu.level.setVisible(true);
             Menu.time.setVisible(true);
             resetGame();
