@@ -1,5 +1,5 @@
 <h1 align="center">------------- BOMBERMAN_CỦA_3_CON_WỶ -------------</h1>
-<br />
+
 <h1 align="center">Table of contents 📖</h1>
 
 <h2 align="center">
