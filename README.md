@@ -1,16 +1,20 @@
 <h1 align="center">------------- BOMBERMAN_CỦA_3_CON_WỶ -------------</h1>
-
+<br />
 <h1 align="center">Table of contents 📖</h1>
 
-I. Giới thiệu chung
-
-II. About Game
-
-III. UML Diagram
-
-IV. Thuật toán và kĩ thuật lập trình đã sử dụng
-
-V. Kết luận, hướng phát triển, điều rút ra được
+<h2 align="center">
+  I. Giới thiệu chung
+  <br />
+  II. About Game
+  <br />
+  III. UML Diagram
+  <br />
+  IV. Thuật toán và kĩ thuật lập trình đã sử dụng
+  <br />
+  V. Kết luận, hướng phát triển, điều rút ra được
+  <br />
+</h2>
+<br />
 
 ## I. Giới thiệu chung
 1. Tên nhóm: OOP_N2_BTL_N2
