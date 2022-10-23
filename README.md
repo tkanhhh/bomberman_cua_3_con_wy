@@ -1,11 +1,12 @@
 # ------------- BOMBERMAN_CỦA_3_CON_WỶ -------------
+
 ## Table of contents
-1. [Introduction](#Introduction)
-2. About Game
-3. UML Diagram
-4. Installation instructions
-5. Algorithm & programming techniques
-6. 
+I. Giới thiệu chung
+II. About Game
+III. UML Diagram
+IV. Cách cài đặt
+V. Thuật toán và kĩ thuật lập trình đã sử dụng
+VI. Kết luận, hướng phát triển, điều rút ra được
 
 ## 1. Introduction
 
