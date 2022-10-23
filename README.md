@@ -1,7 +1,7 @@
 # ------------- BOMBERMAN_CỦA_3_CON_WỶ -------------
 
 ## Table of contents
-I. Giới thiệu chung
+I. [Giới thiệu chung](!Giới thiệu chung)
 
 II. About Game
 
@@ -13,7 +13,7 @@ V. Thuật toán và kĩ thuật lập trình đã sử dụng
 
 VI. Kết luận, hướng phát triển, điều rút ra được
 
-## 1. Introduction
+## 1. Giới thiệu chung
 
 ## 2. About Game
 
