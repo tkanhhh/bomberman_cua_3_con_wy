@@ -3,7 +3,7 @@
 <h1 align="center">Table of contents 📖</h1>
 
 <h2 align="center">
-  I. Giới thiệu chung
+  I. [Giới thiệu chung](#introduction)
   <br />
   II. About Game
   <br />
@@ -16,7 +16,7 @@
 </h2>
 <br />
 
-## I. Giới thiệu chung
+## I. Giới thiệu chung <a name="introduction"></a>
 1. Tên nhóm: OOP_N2_BTL_N2
 2. Lớp: INT2204 20 - Lập trình hướng đối tượng
 3. Tên game: Bomberman của 3 con wỷ
