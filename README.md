@@ -3,15 +3,15 @@
 <h1 align="center">Table of contents 📖</h1>
 
 <h2 align="center">
-  I. [Giới thiệu chung](#introduction)
+  <a href="introduction">I. Giới thiệu chung</a>
   <br />
-  II. About Game
+  <a href="about">II. About Game</a>
   <br />
-  III. UML Diagram
+  <a href="uml">III. UML Diagram</a>
   <br />
-  IV. Thuật toán và kĩ thuật lập trình đã sử dụng
+  <a href="algorithm">IV. Thuật toán và kĩ thuật lập trình đã sử dụng</a>
   <br />
-  V. Kết luận, hướng phát triển, điều rút ra được
+  <a href="conclusion">V. Kết luận, hướng phát triển, điều rút ra được</a>
   <br />
 </h2>
 <br />
@@ -29,7 +29,7 @@
 |   3   |    Hồ Thu Giang    | 21020309 | 21020309@vnu.edu.vn | [hothugiang](https://github.com/hothugiang)   |
 
 
-## II. About Game 🎮
+## II. About Game 🎮 <a name="about"></a>
 ### 1. Thông tin chung
 - Ngôn ngữ: [JAVA](https://www.java.com/en/)
 - Phiên bản SDK: Java 18
@@ -40,7 +40,6 @@
 
 #### [VIDEO DEMO](https://youtu.be/0EiIEkmMF4w)
 
-{@embed: https://youtu.be/0EiIEkmMF4w}
 
 Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, tìm cổng ![](res/sprites/portal.png) để qua màn
 
@@ -82,10 +81,10 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 ### 4. Cách cài đặt
 <Ai đọ vít hộ chứ cí nì t hum bíc vt =))))))>
 
-## III. UML Diagram
+## III. UML Diagram <a name="uml"></a>
 ![BST (3)](https://user-images.githubusercontent.com/100121386/197376395-1a2da0a3-2a06-4943-b595-e01ac7bc1218.png)
 
-## IV. Thuật toán và kĩ thuật lập trình đã sử dụng
+## IV. Thuật toán và kĩ thuật lập trình đã sử dụng <a name="algorithm"></a>
 - Thuật toán tìm đường của Boss: Dijkstra
 
 - Random map
@@ -94,7 +93,7 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 
 - Sử dụng Javafx để chèn ảnh, chèn nhạc, chèn hiệu ứng trong game
 
-## V. Kết luận, hướng phát triển, điều rút ra được
+## V. Kết luận, hướng phát triển, điều rút ra được <a name="conclusion"></a>
 ### 1. Kết luận, điều rút ra được
 - Comment sau mỗi đoạn code
 
