@@ -1,4 +1,4 @@
-# ------------------------------BOMBERMAN_CỦA_3_CON_Wỷ------------------------------
+# ---------------------BOMBERMAN_CỦA_3_CON_WỶ---------------------
 ## Table of contents
 1. [Introduction](#Introduction)
 2. About Game
