@@ -20,7 +20,7 @@
 1. Tên nhóm: OOP_N2_BTL_N2
 2. Lớp: INT2204 20 - Lập trình hướng đối tượng
 3. Tên game: Bomberman của 3 con wỷ
-4. Thành viên nhóm:
+4. 3 con wỷ:  :alien:
 
 | Order |        Name        |    ID    |        Email        |                Github account                 |
 | :---: |:------------------:|:--------:|:-------------------:|:---------------------------------------------:|
