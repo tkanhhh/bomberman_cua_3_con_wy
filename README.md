@@ -39,6 +39,9 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 >
 >**PowerUp**
 >
+![](res/sprites/powerup_speed.png) Tăng tốc độ Bomberman
+![](res/sprites/powerup_flames.png) Tăng độ sát thương của bom nổ
+![](res/sprites/powerup_bombs.png) Tăng số bom có thể đặt trên map
 
 ### 3. Cách cài đặt
 <Ai đọ vít hộ chứ cí nì t hum bíc vt =))))))>
