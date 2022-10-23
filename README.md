@@ -43,6 +43,7 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 
 >**Enemies**
 >
+
 >**PowerUp**
 >
 ![](res/sprites/powerup_speed.png) Tăng tốc độ Bomberman
