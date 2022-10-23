@@ -38,7 +38,7 @@
 
 ### 2. Cách chơi
 
-#### [Video demo](https://youtu.be/0EiIEkmMF4w)
+#### [VIDEO DEMO](https://youtu.be/0EiIEkmMF4w)
 
 Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, tìm cổng ![](res/sprites/portal.png) để qua màn
 
