@@ -81,7 +81,7 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 <Ai đọ vít hộ chứ cí nì t hum bíc vt =))))))>
 
 ## III. UML Diagram
-![Untitled Workspace](https://user-images.githubusercontent.com/100185884/197350219-35673018-6ed7-4f77-b935-281a9822938c.png)
+![BST (3)](https://user-images.githubusercontent.com/100121386/197376395-1a2da0a3-2a06-4943-b595-e01ac7bc1218.png)
 
 ## IV. Thuật toán và kĩ thuật lập trình đã sử dụng
 - Thuật toán tìm đường của Boss: Dijkstra
