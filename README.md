@@ -18,7 +18,13 @@ VI. Kết luận, hướng phát triển, điều rút ra được
 2. Lớp: INT2204 20 - Lập trình hướng đối tượng
 3. Tên game: Bomberman của 3 con wỷ
 4. Thành viên nhóm: 
-![image](https://user-images.githubusercontent.com/100185884/197370351-a6c8a845-d597-40eb-89fb-17dd4a7de60c.png)
+
+| Order |        Name        |    ID    |        Email        |                Github account                 |
+| :---: |:------------------:|:--------:|:-------------------:|:---------------------------------------------:|
+|   1   | Nguyễn Phương Linh | 21020545 | 21020545@vnu.edu.vn |      [Elyy27](https://github.com/Elyy27)      |
+|   2   |   Trịnh Kiều Anh   | 21020282 | 21020282@vnu.edu.vn |     [tkanhhh](https://github.com/tkanhhh)     |
+|   3   |    Hồ Thu Giang    | 21020309 | 21020309@vnu.edu.vn | [hothugiang](https://github.com/hothugiang)   |
+
 
 
 ## 2. About Game
