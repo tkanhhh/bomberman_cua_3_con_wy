@@ -33,6 +33,7 @@ V. Kết luận, hướng phát triển, điều rút ra được
 
 ### 2. Cách chơi
 [Video demo]
+
 Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, tìm cổng ![](res/sprites/portal.png) để qua màn
 
 >**Enemies**
