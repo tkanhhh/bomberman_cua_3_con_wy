@@ -43,7 +43,7 @@
 
 Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, tìm cổng ![](res/sprites/portal.png) để qua màn
 
->**Enemies**
+>**Enemies** 
 >
 ![](res/sprites/dsa.png) *DSA*: Di chuyển tự do với tốc độ không đổi
 
@@ -54,7 +54,7 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 ![](res/sprites/boss.png) *UET_BOSS*: Di chuyển tự do, có thể thay đổi tốc độ, tìm đường đuổi theo Bomberman, có thể hồi sinh số lần nhất định sau khi trúng bom
 
 
->**PowerUp**
+>**PowerUp** 
 >
 ![](res/sprites/powerup_speed.png) *Speed*: Tăng tốc độ Bomberman
 
@@ -62,7 +62,7 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 
 ![](res/sprites/powerup_bombs.png) *Bombs*: Tăng số bom có thể đặt trên map
 
->**Map**
+>**Map** 
 >
 ![](res/sprites/brick.png) *Gạch*: Có thể đặt bom để phá
 
@@ -104,4 +104,6 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 ### 2. Hướng phát triển, cải tiến
 - Thuật toán AI cho máy tự chơi
 - Cải tiến thuật toán di chuyển, xử lý va chạm khi đặt bomb trùng với vị trí của quái
+- Tạo playlist nhạc BGM
+- Cho phép chọn giao diện Bomberman
 - ...
