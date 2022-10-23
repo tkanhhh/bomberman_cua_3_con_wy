@@ -32,7 +32,7 @@
 ## II. About Game 🎮 <a name="about"></a>
 ### 1. Thông tin chung
 - Ngôn ngữ: [JAVA](https://www.java.com/en/)
-- Phiên bản SDK: Java 18
+- Phiên bản SDK: SDK 18
 - IDE: [IntelliJ](https://www.jetbrains.com/idea/)
 - Thư viện đồ hoạ: [JavaFx](https://openjfx.io)
 
@@ -82,7 +82,7 @@ Di chuyển Bomberman lên xuống, thả bom để giết quái phá gạch, t�
 a. Cài đặt IDE, thư viện đồ hoạ
 - Cái Intellij, Java 18
 
-- Cài javafx
+- Cài javafx: [JavaFx](https://openjfx.io)
 
 b. Tải code
 - Lên đầu trang: https://github.com/tkanhhh/bomberman_cua_3_con_wy
@@ -95,6 +95,17 @@ c. Cài đặt và chạy game
 - Mở Intellij, mở project vừa tải
 
 - Chọn Run/Edit Configurations 
+
+- Ấn dấu + bên góc trái, chọn Application
+
+- Modify options/Add VM Options
+
+- Tại ô VM Options nhập --module-path <Đường dẫn tới folder lib của javafx> --add-modules=ALL-MODULE-PATH
+*VD:* --module-path C:/javafx-sdk-19/lib/ --add-modules=ALL-MODULE-PATH
+
+- Tại ô main điền BombermanGame
+
+- Apply/Ok => Chạy thử game
 
 ## III. UML Diagram <a name="uml"></a>
 ![BST (3)](https://user-images.githubusercontent.com/100121386/197376395-1a2da0a3-2a06-4943-b595-e01ac7bc1218.png)
