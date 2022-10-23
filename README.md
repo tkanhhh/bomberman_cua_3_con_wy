@@ -1,6 +1,7 @@
-# ------------- BOMBERMAN_CỦA_3_CON_WỶ -------------
+<h1 align="center">------------- BOMBERMAN_CỦA_3_CON_WỶ -------------</h1>
 
-# Table of contents 📖
+<h1 align="center">Table of contents 📖</h1>
+
 I. Giới thiệu chung
 
 II. About Game
