@@ -101,6 +101,7 @@ c. Cài đặt và chạy game
 - Modify options/Add VM Options
 
 - Tại ô VM Options nhập --module-path <Đường dẫn tới folder lib của javafx> --add-modules=ALL-MODULE-PATH
+
 *VD:* --module-path C:/javafx-sdk-19/lib/ --add-modules=ALL-MODULE-PATH
 
 - Tại ô main điền BombermanGame
