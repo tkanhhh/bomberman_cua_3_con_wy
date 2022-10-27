@@ -112,7 +112,7 @@ public class Sprite {
 	
 	public static Sprite boss_dead = new Sprite(DEFAULT_SIZE, 11, 3, SpriteSheet.tiles, 16, 16);
 	
-	//Doll
+	//CA
 	public static Sprite ca_left1 = new Sprite(DEFAULT_SIZE, 13, 0, SpriteSheet.tiles, 16, 16);
 	public static Sprite ca_left2 = new Sprite(DEFAULT_SIZE, 13, 1, SpriteSheet.tiles, 16, 16);
 	public static Sprite ca_left3 = new Sprite(DEFAULT_SIZE, 13, 2, SpriteSheet.tiles, 16, 16);
@@ -230,7 +230,6 @@ public class Sprite {
 		}
 	}
 
-	//sos k hiểu
 	public static Sprite movingSprite(Sprite normal, Sprite x1, Sprite x2, int animate, int time) {
 		int calc = animate % time;
 		int diff = time / 3;
